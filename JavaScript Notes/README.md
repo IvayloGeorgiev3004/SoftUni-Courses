@@ -1,0 +1,2 @@
+# JS PERSONAL NOTES
+Notes!
