@@ -1,0 +1,13 @@
+function characterSeq(input) {
+    let text = input[0];
+
+    let letter = 0;
+
+    for (let i = 0; i < text.length; i++) {
+        let letter = text[i]
+        console.log(letter)
+        //console.log(text[i])
+    }
+
+}
+characterSeq(["softuni"])
