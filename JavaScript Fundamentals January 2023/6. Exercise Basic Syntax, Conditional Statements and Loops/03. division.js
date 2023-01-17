@@ -14,4 +14,4 @@ function division(number) {
     }
 
 }
-division(0)
+division(5)
