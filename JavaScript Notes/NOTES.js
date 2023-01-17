@@ -22,6 +22,7 @@ parseFloat() // преобразува стринг в цяло число
 
 "ОБРАБОТКА ТЕКСТ"
 CTRL + SHIFT + P === ASCII
+replace // let name = IvoG  name.replace("o, 2") = Iv2G
 "\n"// печата на нов ред!!!
 chartAt(1) // връща символа, който стои на 1ви индекс //  name.charAt(0)
 chartAt(index[i]) // връща символа, който стои на съответния индекс.  name[i]
