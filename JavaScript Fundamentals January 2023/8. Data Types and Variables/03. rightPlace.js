@@ -1,19 +1,30 @@
-function rightPlace(string, char, string2){
+function rightPlace(string, char, string2) {
     let newString = string.replace("_", char)
 
-    if (newString === string2){
+    if (newString === string2) {
         console.log('Matched')
-    } else{
+    } else {
         console.log('Not Matched')
     }
 
 }
-rightPlace('Str_ng', 'i',
+rightPlace('Str_ng', 'i', 'String')
 
-'String')
 
-function rightPlace2(string, char, string2){
+function rightPlace2(string, char, string2) {
 
-    
+    let newString = ""
+    for (let i = 0; i < string.length; i++) {
+        let newChar = string[i]
+
+        if (newChar === "_") {
+            newChar = char
+        }
+        newString += newChar;
+    }
+
+    console.log(newString === string2 ? "Matched" : "Not Matched")
 }
-rightPlace()
+rightPlace2('Str_ng', 'i',
+
+    'String')

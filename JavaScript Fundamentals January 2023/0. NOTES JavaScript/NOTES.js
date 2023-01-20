@@ -67,3 +67,21 @@ num % 2 === 0
 // *=	x *= y	x = x * y
 // /=	x /= y	x = x / y
 // %=	x %= y	x = x % y
+
+
+function triplesOfLatinLetters(number) {
+    for (let i = 0; i < number; i++) {
+        for (let j = 0; j < number; j++) {
+            for (let k = 0; k < number; k++) {
+                /*  let char1 = String.fromCharCode(97 + i)
+                 let char2 = String.fromCharCode(97 + j)
+                 let char3 = String.fromCharCode(97 + k) */
+                let char4 = String.fromCharCode('a'.charCodeAt(0) + i)
+                let char5 = String.fromCharCode('a'.charCodeAt(0) + j)
+                let char6 = String.fromCharCode('a'.charCodeAt(0) + k)
+                console.log(`${char4}${char5}${char6}`)
+            }
+        }
+    }
+
+}
