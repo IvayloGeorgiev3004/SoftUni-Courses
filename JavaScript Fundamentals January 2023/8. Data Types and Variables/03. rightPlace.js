@@ -11,3 +11,9 @@ function rightPlace(string, char, string2){
 rightPlace('Str_ng', 'i',
 
 'String')
+
+function rightPlace2(string, char, string2){
+
+    
+}
+rightPlace()
