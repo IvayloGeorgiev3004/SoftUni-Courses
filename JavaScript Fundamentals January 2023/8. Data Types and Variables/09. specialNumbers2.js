@@ -2,7 +2,7 @@ function specialNumbers2(number) {
     let iAsChar = "";
     let jAsChar = "";
     let currentNumber = 0;
-    let result = 0;
+
 
     for (let i = 1; i <= number; i++) {
         iAsChar = i.toString()
