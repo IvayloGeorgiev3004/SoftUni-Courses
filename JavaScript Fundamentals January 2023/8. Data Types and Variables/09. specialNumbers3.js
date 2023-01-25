@@ -3,8 +3,9 @@ function specialNumbers3(number) {
     let sum = 0;
 
     for (let i = 1; i <= number; i++) {
-        for (let j = 1; j < stringFromNum.length-1; j++) {
-            let numFromString = Number(stringFromNum[j])
+        let testString = i.toString();
+        for (let j = 0; j < testString.length-1; j++) {
+            let numFromString = Number(testString[j])
             
             sum += i + numFromString;
         }
