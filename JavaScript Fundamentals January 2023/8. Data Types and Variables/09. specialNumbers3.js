@@ -7,7 +7,8 @@ function specialNumbers3(number) {
         for (let j = 0; j < testString.length-1; j++) {
             let numFromString = Number(testString[j])
             
-            sum += i + numFromString;
+           console.log(i)
+           console.log(Number(testString[j]))
         }
     }
 }
