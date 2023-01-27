@@ -2,9 +2,6 @@ function condenseArrayToNumber(array) {
     let newArr = [];
     let buff = 0;
 
-    if (array.length < 2) {
-        newArr = array;
-    }
     while (array.length > 1) {
         for (let i = 0; i < array.length - 1; i++) {
             buff = array[i] + array[i + 1]
