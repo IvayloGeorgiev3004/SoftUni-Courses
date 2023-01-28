@@ -1,5 +1,5 @@
 function maxNumber(array) {
-    array.push(0)
+    array.push(Number.MIN_SAFE_INTEGER)
     let maxNumber = Number.MIN_SAFE_INTEGER;
     let newMax2 = Number.MIN_SAFE_INTEGER;
     let newArray = [];
@@ -14,10 +14,10 @@ function maxNumber(array) {
         if (maxNumber > newMax2) {
             newArray.push(maxNumber)
         }
-        newMax2 = 0
+        newMax2 = Number.MIN_SAFE_INTEGER
     }
     console.log(newArray.join(" "))
 }
 
 
-maxNumber([27, 19, 42, 2, 13, 45, 48])
+maxNumber([0,0,0,0,0])
