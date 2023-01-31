@@ -15,8 +15,8 @@ function maxSequenceOfEqualElements(array) {
             resultIndex = array[i]
         }
     }
-    for (let i = 0; i< newMax;i++){
-        finalResult+= resultIndex + " "
+    for (let i = 0; i < newMax; i++) {
+        finalResult += resultIndex + " "
     }
     console.log(finalResult)
 }
