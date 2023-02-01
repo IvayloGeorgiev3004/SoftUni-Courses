@@ -12,12 +12,11 @@ function ladyBugs(array) {
         initialFieldArray.push(0)
     }
     splicedBugs = bugsInitialPosition.split(" ")
-    for (let j = 0; j < bugsInitialPosition.length; j++) {
-       if (j === Number(bugsInitialPosition[j])) {
-        initialFieldArray[j] = 1;
-       } else {
-        initialFieldArray[j] = 0
-       }
+    for (let j = 0; j < splicedBugs.length; j++) {
+        let buff = Number(splicedBugs[j])
+        initialFieldArray[buff] = 1;
+
+
     }
     for (let k = 2; k < array.length; k++) {
         let movesCommand = array[k].split(" ")
@@ -30,6 +29,9 @@ function ladyBugs(array) {
         }
         if (travelToIndex >= fieldSize) {
             continue;
+        }
+        if (travelToIndex < 0 && moveDirection === "left"){
+            moveDirection = "right"
         }
         switch (moveDirection) {
             case "right":
@@ -63,9 +65,23 @@ function ladyBugs(array) {
                         }
                     }
 
-                }
+                } break;
             case "left":
-            // TO DO
+                if (travelToIndex >= 0) {
+                    initialFieldArray[travelFromIndex] = 0;
+                    for (let l = travelFromIndex; l >= 0; l--) {
+                        if (initialFieldArray[travelToIndex] === 0) {
+                            initialFieldArray[travelToIndex] = 1;
+                        } else {
+                            travelFromIndex--
+                            continue;
+                        }
+                    }
+                } else if (travelToIndex < 0){
+                   moveDirection = "right"
+                   travelToIndex = Math.abs(travelToIndex)
+                }
+                break;
 
         }
 
@@ -74,9 +90,11 @@ function ladyBugs(array) {
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [3, '0 1',
-        '2 right -1',
-        '2 right 1'])
+    [5, '3',
+        '3 left 2',
+        '1 left -2']
+
+)
 
 
 /* function ladybugs(array) {
