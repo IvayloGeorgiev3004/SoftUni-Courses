@@ -4,9 +4,9 @@ function ladyBugs(array) {
     let newArray = []
     let moves = ""
     let initialFieldArray = []
-    let indexesToMove = []
+    let travelToIndex = []
     let moveDirection = []
-    let originalPositionToMove = []
+    let travelFromIndex = []
 
     for (let i = 0; i < fieldSize; i++) {
         initialFieldArray.push(0)
@@ -16,25 +16,43 @@ function ladyBugs(array) {
         initialFieldArray[j] = 1;
     }
     for (let k = 2; k < array.length; k++) {
-      let movesCommand = array[k].split(" ")
-      let action = [originalPositionToMove, moveDirection, indexesToMove] = movesCommand; 
-      let test1 = 0
-      let test2 = 2
+        let movesCommand = array[k].split(" ")
+        let actions = [travelFromIndex, moveDirection, travelToIndex] = movesCommand;
+        travelFromIndex = Number(travelFromIndex);
+        travelToIndex = Number(travelToIndex);
+
+        if (travelFromIndex < 0 || travelFromIndex >= fieldSize || initialFieldArray[travelFromIndex] !== 1) {
+            continue;
+        }
+        switch (moveDirection) {
+            case "right":
+                initialFieldArray[travelFromIndex] = 0
+                for (let m = travelFromIndex; m < travelToIndex; m++) {
+                    if(travelToIndex >= initialFieldArray.length){
+                        break;
+                    }
+                    if (initialFieldArray[travelToIndex] === 0) {
+                        initialFieldArray[travelToIndex] = 1
+                    } else {
+                        travelToIndex++
+                        continue;
+                    }
+                   
+                }
+            case "left":
+            // TO DO
+
+        }
+       
+
     }
-    
-
-
-
-    console.log(initialFieldArray)
-    console.log(moveDirection)
-    console.log(originalPositionToMove)
-    console.log(indexesToMove)
-
+    console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [3, '0 1',
-        '0 right 1',
-        '2 right 1'])
+    [3, '0 1 2',
+'0 right 1',
+'1 right 1',
+'2 right 1'])
 
 
 /* function ladybugs(array) {
@@ -90,127 +108,127 @@ ladybugs(
 
 
 
-        function solve(input) {
-            let fieldSize = input[0];
-            let ladybugPositions = input[1].split(' ').map(Number);
-        
-            // Create Field
-            // let createField = [];
-            // for (let f = 0; f < fieldSize; f++) {
-            //     createField.push(0);
-            // }
-            let createField = new Array(fieldSize).fill(0);
-        
-            // Put the Ladybugs on the field (starting positions)
-            // for (let s = 0; s < ladybugPositions.length; s++) {
-            //     if (ladybugPositions[s] >= 0 && ladybugPositions[s] < fieldSize) {
-            //         createField.splice(ladybugPositions[s], 1, 1);
-            //     }
-            // }
-            ladybugPositions.forEach((i) => {
-                if (i >= 0 && i < fieldSize) {
-                    createField[i] = 1;
-                }
-            });
-        
-            for (let i = 2; i < input.length; i++) {
-                // create directions
-                let command = input[i].split(' '); // split the current input into 3 parts
-                // let direction = command[1]; // 1 - left or right
-                // let travelFrom = Number(command[0]); // 2- starting position
-                // let travelTo = Number(command[2]); // 3 - ending position
-                let [travelFrom, direction, travelTo] = command;
-                travelFrom = Number(travelFrom);
-                travelTo = Number(travelTo);
-        
-                // if (travelFrom < 0 || travelFrom > fieldSize) {
-                if (travelFrom < 0 || travelFrom >= fieldSize || createField[travelFrom] !== 1) {
+/* function solve(input) {
+    let fieldSize = input[0];
+    let ladybugPositions = input[1].split(' ').map(Number);
+
+    // Create Field
+    // let createField = [];
+    // for (let f = 0; f < fieldSize; f++) {
+    //     createField.push(0);
+    // }
+    let createField = new Array(fieldSize).fill(0);
+
+    // Put the Ladybugs on the field (starting positions)
+    // for (let s = 0; s < ladybugPositions.length; s++) {
+    //     if (ladybugPositions[s] >= 0 && ladybugPositions[s] < fieldSize) {
+    //         createField.splice(ladybugPositions[s], 1, 1);
+    //     }
+    // }
+    ladybugPositions.forEach((i) => {
+        if (i >= 0 && i < fieldSize) {
+            createField[i] = 1;
+        }
+    });
+
+    for (let i = 2; i < input.length; i++) {
+        // create directions
+        let command = input[i].split(' '); // split the current input into 3 parts
+        // let direction = command[1]; // 1 - left or right
+        // let travelFrom = Number(command[0]); // 2- starting position
+        // let travelTo = Number(command[2]); // 3 - ending position
+        let [travelFrom, direction, travelTo] = command;
+        travelFrom = Number(travelFrom);
+        travelTo = Number(travelTo);
+
+        // if (travelFrom < 0 || travelFrom > fieldSize) {
+        if (travelFrom < 0 || travelFrom >= fieldSize || createField[travelFrom] !== 1) {
+            continue;
+        }
+
+        if (direction === 'right') {
+            createField[travelFrom] = 0;
+            let newIndex = travelFrom + travelTo;
+
+            while (newIndex < fieldSize) {
+                if (createField[newIndex] === 1) {
+                    newIndex += travelTo;
                     continue;
                 }
-        
-                if (direction === 'right') {
-                    createField[travelFrom] = 0;
-                    let newIndex = travelFrom + travelTo;
-        
-                    while (newIndex < fieldSize) {
-                        if (createField[newIndex] === 1) {
-                            newIndex += travelTo;
-                            continue;
-                        }
-                        createField[newIndex] = 1;
-                        break;
-                    }
-                } else if (direction === 'left') {
-                    createField[travelFrom] = 0;
-                    let newIndex = travelFrom - travelTo;
-        
-                    while (newIndex >= 0) {
-                        if (createField[newIndex] === 1) {
-                            newIndex -= travelTo;
-                            continue;
-                        }
-                        createField[newIndex] = 1;
-                        break;
-                    }
-                }
-        
-                // negative steps reversal
-                // if (travelTo < 0) {
-                //     travelTo = Math.abs(travelTo);
-                //     if (direction === "right") {
-                //         direction = 'left';
-                //     } else if (direction === "left") {
-                //         direction = 'right';
-                //     }
-                // }
-                // Move Right
-                // if (direction === "right" && createField[travelFrom] === 1) {
-                //     travelTo = travelFrom + travelTo;
-                //     // first remove remove the bug 
-                //     createField[travelFrom] = 0;
-                //     // then if the spot is taken
-                //     if (createField[travelTo] !== 0) {
-                //         // fly until you find one
-                //         for (let x = 0; x < fieldSize; x++) {
-                //             if (createField[travelTo] !== 0) {
-                //                 travelTo++
-                //             }
-                //             if (createField[travelTo] === 0) {
-                //                 break;
-                //             }
-                //         }
-                //     }
-                //     // land on the free one
-                //     if (createField[travelTo] === 0) {
-                //         let ladybugIsMoving = createField.splice(travelTo, 1, 1);
-                //     }
-                //     // Move left
-                // } 
-                // else if (direction === "left" && createField[travelFrom] === 1) {
-                //     travelTo = travelFrom - travelTo;
-                //     // first remove remove the bug 
-                //     createField[travelFrom] = 0;
-                //     // if the spot is taken
-                //     if (createField[travelTo] !== 0) {
-                //         // fly until you find one
-                //         for (let x = 0; x < fieldSize; x++) {
-                //             if (createField[travelTo] !== 0) {
-                //                 travelTo--;
-                //             }
-                //             if (createField[travelTo] === 0) {
-                //                 break;
-                //             }
-                //         }
-                //     }
-                //     // land on the free one
-                //     if (createField[travelTo] === 0) {
-                //         let ladybugIsMoving = createField.splice(travelTo, 1, 1);
-                //     }
-                // }
+                createField[newIndex] = 1;
+                break;
             }
-        
-            console.log(createField.join(' '));
+        } else if (direction === 'left') {
+            createField[travelFrom] = 0;
+            let newIndex = travelFrom - travelTo;
+
+            while (newIndex >= 0) {
+                if (createField[newIndex] === 1) {
+                    newIndex -= travelTo;
+                    continue;
+                }
+                createField[newIndex] = 1;
+                break;
+            }
         }
-        solve([3, '0 1',
-        '0 right 1',
-        '2 right 1'])
+
+        // negative steps reversal
+        // if (travelTo < 0) {
+        //     travelTo = Math.abs(travelTo);
+        //     if (direction === "right") {
+        //         direction = 'left';
+        //     } else if (direction === "left") {
+        //         direction = 'right';
+        //     }
+        // }
+        // Move Right
+        // if (direction === "right" && createField[travelFrom] === 1) {
+        //     travelTo = travelFrom + travelTo;
+        //     // first remove remove the bug 
+        //     createField[travelFrom] = 0;
+        //     // then if the spot is taken
+        //     if (createField[travelTo] !== 0) {
+        //         // fly until you find one
+        //         for (let x = 0; x < fieldSize; x++) {
+        //             if (createField[travelTo] !== 0) {
+        //                 travelTo++
+        //             }
+        //             if (createField[travelTo] === 0) {
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     // land on the free one
+        //     if (createField[travelTo] === 0) {
+        //         let ladybugIsMoving = createField.splice(travelTo, 1, 1);
+        //     }
+        //     // Move left
+        // } 
+        // else if (direction === "left" && createField[travelFrom] === 1) {
+        //     travelTo = travelFrom - travelTo;
+        //     // first remove remove the bug 
+        //     createField[travelFrom] = 0;
+        //     // if the spot is taken
+        //     if (createField[travelTo] !== 0) {
+        //         // fly until you find one
+        //         for (let x = 0; x < fieldSize; x++) {
+        //             if (createField[travelTo] !== 0) {
+        //                 travelTo--;
+        //             }
+        //             if (createField[travelTo] === 0) {
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     // land on the free one
+        //     if (createField[travelTo] === 0) {
+        //         let ladybugIsMoving = createField.splice(travelTo, 1, 1);
+        //     }
+        // }
+    }
+
+    console.log(createField.join(' '));
+}
+solve([3, '0 1',
+    '0 right 1',
+    '2 right 1']) */
