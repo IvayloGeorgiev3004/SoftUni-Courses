@@ -16,28 +16,13 @@ function ladyBugs(array) {
         initialFieldArray[j] = 1;
     }
     for (let k = 2; k < array.length; k++) {
-        if (k === array.length - 1) {
-            moves += array[k]
-        } else {
-            moves += array[k] + " "
-        }
-
+      let movesCommand = array[k].split(" ")
+      let action = [originalPositionToMove, moveDirection, indexesToMove] = movesCommand; 
+      let test1 = 0
+      let test2 = 2
     }
-    movesArray = moves.split(" ", moves.length)
-    let newTest = moves.split(" ")
-
-    for (let l = 0; l < newTest.length; l += 3) {
-        originalPositionToMove = Number(newTest[l])
-        moveDirection = newTest[l + 1]
-        indexesToMove = Number(newTest[l + 2])
-
-        switch (moveDirection) {
-            case 'right':
-
-            case 'left':
     
-                }
-    }
+
 
 
     console.log(initialFieldArray)
