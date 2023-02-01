@@ -1,8 +1,6 @@
 function ladyBugs(array) {
     let fieldSize = array[0]
     let bugsInitialPosition = array[1]
-    let newArray = []
-    let moves = ""
     let initialFieldArray = []
     let travelToIndex = []
     let moveDirection = []
@@ -24,35 +22,53 @@ function ladyBugs(array) {
         if (travelFromIndex < 0 || travelFromIndex >= fieldSize || initialFieldArray[travelFromIndex] !== 1) {
             continue;
         }
+        if (travelToIndex >= fieldSize) {
+            continue;
+        }
         switch (moveDirection) {
             case "right":
-                initialFieldArray[travelFromIndex] = 0
-                for (let m = travelFromIndex; m < travelToIndex; m++) {
-                    if(travelToIndex >= initialFieldArray.length){
-                        break;
+                if (travelToIndex >= 0) {
+                    initialFieldArray[travelFromIndex] = 0
+                    for (let m = travelFromIndex; m < travelToIndex; m++) {
+                        if (travelToIndex >= initialFieldArray.length) {
+                            break;
+                        }
+                        if (initialFieldArray[travelToIndex] === 0) {
+                            initialFieldArray[travelToIndex] = 1
+                        } else {
+                            travelToIndex++
+                            continue;
+                        }
                     }
-                    if (initialFieldArray[travelToIndex] === 0) {
-                        initialFieldArray[travelToIndex] = 1
-                    } else {
-                        travelToIndex++
-                        continue;
+                } else if(travelToIndex < 0){
+                    for (let m = travelFromIndex; m > travelToIndex; m--) {
+                        if (travelToIndex >= initialFieldArray.length) {
+                            break;
+                        }
+                        if (initialFieldArray[travelToIndex] === 0) {
+                            initialFieldArray[travelToIndex] = 1
+                        } else {
+                            travelToIndex--
+                            continue;
+                        }
                     }
-                   
+
+
+
                 }
             case "left":
             // TO DO
 
         }
-       
+
 
     }
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [3, '0 1 2',
-'0 right 1',
-'1 right 1',
-'2 right 1'])
+    [3, '0 1',
+        '1 right -1',
+        '2 right 1'])
 
 
 /* function ladybugs(array) {
