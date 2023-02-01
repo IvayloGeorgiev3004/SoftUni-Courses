@@ -1,6 +1,8 @@
 function ladyBugs(array) {
     let fieldSize = array[0]
     let bugsInitialPosition = array[1]
+    let bugsStartingPositionArray = []
+    let splicedBugs = []
     let initialFieldArray = []
     let travelToIndex = []
     let moveDirection = []
@@ -9,9 +11,13 @@ function ladyBugs(array) {
     for (let i = 0; i < fieldSize; i++) {
         initialFieldArray.push(0)
     }
-
-    for (let j = 0; j < bugsInitialPosition.length / 2; j++) {
+    splicedBugs = bugsInitialPosition.split(" ")
+    for (let j = 0; j < bugsInitialPosition.length; j++) {
+       if (j === Number(bugsInitialPosition[j])) {
         initialFieldArray[j] = 1;
+       } else {
+        initialFieldArray[j] = 0
+       }
     }
     for (let k = 2; k < array.length; k++) {
         let movesCommand = array[k].split(" ")
@@ -40,20 +46,22 @@ function ladyBugs(array) {
                             continue;
                         }
                     }
-                } else if(travelToIndex < 0){
-                    for (let m = travelFromIndex; m > travelToIndex; m--) {
+                } else if (travelToIndex < 0) {
+                    moveDirection = "left"
+                    travelToIndex = Math.abs(travelToIndex)
+                    initialFieldArray[travelFromIndex] = 0
+                    for (let m = travelFromIndex; m >= 0; m--) {
                         if (travelToIndex >= initialFieldArray.length) {
                             break;
                         }
                         if (initialFieldArray[travelToIndex] === 0) {
                             initialFieldArray[travelToIndex] = 1
+                            break;
                         } else {
-                            travelToIndex--
+                            travelToIndex++
                             continue;
                         }
                     }
-
-
 
                 }
             case "left":
@@ -67,7 +75,7 @@ function ladyBugs(array) {
 }
 ladyBugs(
     [3, '0 1',
-        '1 right -1',
+        '2 right -1',
         '2 right 1'])
 
 
