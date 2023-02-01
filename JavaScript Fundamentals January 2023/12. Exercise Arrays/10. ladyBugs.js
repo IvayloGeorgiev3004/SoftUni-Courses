@@ -1,7 +1,8 @@
 function ladyBugs(array) {
     let fieldSize = array[0]
     let bugsInitialPosition = array[1]
-    let bugsStartingPositionArray = []
+    let leftIndexes = 0;
+    let rightIndexes = 0;
     let splicedBugs = []
     let initialFieldArray = []
     let travelToIndex = []
@@ -9,13 +10,24 @@ function ladyBugs(array) {
     let travelFromIndex = []
 
     for (let i = 0; i < fieldSize; i++) {
+        if (fieldSize === 0) {
+            break;
+        }
         initialFieldArray.push(0)
     }
     splicedBugs = bugsInitialPosition.split(" ")
     for (let j = 0; j < splicedBugs.length; j++) {
+        if (fieldSize === 0) {
+            break;
+        }
+        if (splicedBugs[j] === "") {
+            break;
+        }
+        if (j >= initialFieldArray.length) {
+            break;
+        }
         let buff = Number(splicedBugs[j])
         initialFieldArray[buff] = 1;
-
 
     }
     for (let k = 2; k < array.length; k++) {
@@ -30,19 +42,21 @@ function ladyBugs(array) {
         if (travelToIndex >= fieldSize) {
             continue;
         }
-        if (travelToIndex < 0 && moveDirection === "left"){
+        if (travelToIndex < 0 && moveDirection === "left") {
             moveDirection = "right"
+            travelToIndex = Math.abs(travelToIndex)
         }
         switch (moveDirection) {
             case "right":
                 if (travelToIndex >= 0) {
+                    rightIndexes = travelFromIndex + travelToIndex;
                     initialFieldArray[travelFromIndex] = 0
-                    for (let m = travelFromIndex; m < travelToIndex; m++) {
+                    for (let m = travelFromIndex; m < rightIndexes; m++) {
                         if (travelToIndex >= initialFieldArray.length) {
                             break;
                         }
-                        if (initialFieldArray[travelToIndex] === 0) {
-                            initialFieldArray[travelToIndex] = 1
+                        if (initialFieldArray[rightIndexes] === 0) {
+                            initialFieldArray[rightIndexes] = 1
                         } else {
                             travelToIndex++
                             continue;
@@ -70,16 +84,18 @@ function ladyBugs(array) {
                 if (travelToIndex >= 0) {
                     initialFieldArray[travelFromIndex] = 0;
                     for (let l = travelFromIndex; l >= 0; l--) {
-                        if (initialFieldArray[travelToIndex] === 0) {
-                            initialFieldArray[travelToIndex] = 1;
+                        leftIndexes = travelFromIndex - travelToIndex
+                        if (initialFieldArray[leftIndexes] === 0) {
+                            initialFieldArray[leftIndexes] = 1;
+                            break;
                         } else {
                             travelFromIndex--
                             continue;
                         }
                     }
-                } else if (travelToIndex < 0){
-                   moveDirection = "right"
-                   travelToIndex = Math.abs(travelToIndex)
+                } else if (travelToIndex < 0) {
+                    moveDirection = "right"
+                    travelToIndex = Math.abs(travelToIndex)
                 }
                 break;
 
@@ -90,9 +106,9 @@ function ladyBugs(array) {
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [5, '3',
-        '3 left 2',
-        '1 left -2']
+    [ 1, '1',
+'0 left 0',
+'0 left 0']
 
 )
 
