@@ -1,5 +1,7 @@
 function ladyBugs(array) {
     let fieldSize = array[0]
+    let workingArray = array.slice()
+    let newWorkingArray = workingArray.slice(2)
     let bugsInitialPosition = array[1]
     let leftIndexes = 0;
     let rightIndexes = 0;
@@ -30,8 +32,8 @@ function ladyBugs(array) {
 
 
     }
-    for (let k = 2; k < array.length; k++) {
-        let movesCommand = array[k].split(" ")
+    for (let k = 0; k < newWorkingArray.length; k++) {
+        let movesCommand = newWorkingArray[k].split(" ")
         let actions = [travelFromIndex, moveDirection, travelToIndex] = movesCommand;
         travelFromIndex = Number(travelFromIndex);
         travelToIndex = Number(travelToIndex);
@@ -51,25 +53,23 @@ function ladyBugs(array) {
             case "right":
                 if (travelToIndex >= 0) {
                     rightIndexes = travelFromIndex + travelToIndex;
-                    for (let m = travelFromIndex; m < initialFieldArray.length; m+=travelToIndex) {
+                    initialFieldArray[travelFromIndex] = 0
+                    for (let m = travelFromIndex; m < initialFieldArray.length; m++) {
                         if (travelToIndex >= initialFieldArray.length) {
                             break;
                         }
-                        if (initialFieldArray[travelToIndex] === 0) {
-                            initialFieldArray[m] = 1
-                            travelToIndex+=travelFromIndex
+                        if (initialFieldArray[rightIndexes] === 0) {
+                            initialFieldArray[rightIndexes] = 1
                             break;
-                        } else  {
-                            initialFieldArray[travelFromIndex] = 0
-                            travelToIndex+=travelToIndex
-                            travelFromIndex++
+                        } else {
+                            rightIndexes += rightIndexes
                             continue;
                         }
                     }
                 } else if (travelToIndex < 0) {
                     travelToIndex = Math.abs(travelToIndex)
                     initialFieldArray[travelFromIndex] = 0
-                    for (let m = travelFromIndex; m >= 0; m--) {
+                    for (let m = travelFromIndex; m >= 0; m++) {
                         rightIndexes = travelFromIndex + travelToIndex;
                         if (travelToIndex >= initialFieldArray.length) {
                             break;
@@ -78,7 +78,8 @@ function ladyBugs(array) {
                             initialFieldArray[rightIndexes] = 1
                             break;
                         } else {
-                            travelToIndex++
+                            travelToIndex += travelToIndex
+                            travelFromIndex = travelToIndex;
                             continue;
                         }
                     }
@@ -93,7 +94,7 @@ function ladyBugs(array) {
                             initialFieldArray[leftIndexes] = 1;
                             break;
                         } else {
-                            travelFromIndex--
+                            travelFromIndex -= travelToIndex;
                             continue;
                         }
                     }
@@ -123,10 +124,7 @@ function ladyBugs(array) {
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [3, '0 1 2',
-'0 right 1',
-'1 right 1',
-'2 right 1']
+    [100, '-2 -3 -4 12 32 89 6 1 12 32 89 6 1 12 32 1 1 11 1', '0 right 5','6 right 2','7 left 1','19 left 0','-12 left 12','0 left 0','12 right 0','32 right 120','89 left 260']
 
 )
 
@@ -176,8 +174,7 @@ function ladybugs(array) {
     console.log(finalBugsArray.join(' '));
 }
 ladybugs(
-    [10, '0 1 2',
-        '0 right 2',]
+    [100, '-2 -3 -4 12 32 89 6 1 12 32 89 6 1 12 32 1 1 11 1', '0 right 5','6 right 2','7 left 1','19 left 0','-12 left 12','0 left 0','12 right 0','32 right 120','89 left 260']
 
 )
 
@@ -306,6 +303,7 @@ ladybugs(
 
     console.log(createField.join(' '));
 }
-solve([3, '0 1',
-    '0 right 1',
-    '2 right 1']) */
+solve([5, '3',
+    '3 left 2',
+    '1 left -2']
+) */
