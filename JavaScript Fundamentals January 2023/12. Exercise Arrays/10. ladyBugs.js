@@ -3,31 +3,31 @@ function ladyBugs(array) {
     let bugsInitialPosition = array[1]
     let leftIndexes = 0;
     let rightIndexes = 0;
-    let splicedBugs = []
+    let splicedBugs = ""
     let initialFieldArray = []
     let travelToIndex = []
     let moveDirection = []
     let travelFromIndex = []
 
     for (let i = 0; i < fieldSize; i++) {
-        if (fieldSize === 0) {
+        if (fieldSize <= 0) {
             break;
         }
         initialFieldArray.push(0)
     }
     splicedBugs = bugsInitialPosition.split(" ")
-    for (let j = 0; j < splicedBugs.length; j++) {
-        if (fieldSize === 0) {
-            break;
+
+    for (const bugsInitialField of splicedBugs) {
+        let currentBugPosition = Number(bugsInitialField)
+
+        if (bugsInitialField === "") {
+            continue;
         }
-        if (splicedBugs[j] === "") {
-            break;
+        if (currentBugPosition < 0 || currentBugPosition >= fieldSize) {
+            continue;
         }
-        if (j >= initialFieldArray.length) {
-            break;
-        }
-        let buff = Number(splicedBugs[j])
-        initialFieldArray[buff] = 1;
+        initialFieldArray[currentBugPosition] = 1;
+
 
     }
     for (let k = 2; k < array.length; k++) {
@@ -44,34 +44,38 @@ function ladyBugs(array) {
         }
         if (travelToIndex < 0 && moveDirection === "left") {
             moveDirection = "right"
-            travelToIndex = Math.abs(travelToIndex)
+        } else if (travelToIndex < 0 && moveDirection === "right") {
+            moveDirection = "left"
         }
         switch (moveDirection) {
             case "right":
                 if (travelToIndex >= 0) {
                     rightIndexes = travelFromIndex + travelToIndex;
+                    for (let m = travelFromIndex; m < initialFieldArray.length; m+=travelToIndex) {
+                        if (travelToIndex >= initialFieldArray.length) {
+                            break;
+                        }
+                        if (initialFieldArray[travelToIndex] === 0) {
+                            initialFieldArray[m] = 1
+                            travelToIndex+=travelFromIndex
+                            break;
+                        } else  {
+                            initialFieldArray[travelFromIndex] = 0
+                            travelToIndex+=travelToIndex
+                            travelFromIndex++
+                            continue;
+                        }
+                    }
+                } else if (travelToIndex < 0) {
+                    travelToIndex = Math.abs(travelToIndex)
                     initialFieldArray[travelFromIndex] = 0
-                    for (let m = travelFromIndex; m < rightIndexes; m++) {
+                    for (let m = travelFromIndex; m >= 0; m--) {
+                        rightIndexes = travelFromIndex + travelToIndex;
                         if (travelToIndex >= initialFieldArray.length) {
                             break;
                         }
                         if (initialFieldArray[rightIndexes] === 0) {
                             initialFieldArray[rightIndexes] = 1
-                        } else {
-                            travelToIndex++
-                            continue;
-                        }
-                    }
-                } else if (travelToIndex < 0) {
-                    moveDirection = "left"
-                    travelToIndex = Math.abs(travelToIndex)
-                    initialFieldArray[travelFromIndex] = 0
-                    for (let m = travelFromIndex; m >= 0; m--) {
-                        if (travelToIndex >= initialFieldArray.length) {
-                            break;
-                        }
-                        if (initialFieldArray[travelToIndex] === 0) {
-                            initialFieldArray[travelToIndex] = 1
                             break;
                         } else {
                             travelToIndex++
@@ -94,8 +98,21 @@ function ladyBugs(array) {
                         }
                     }
                 } else if (travelToIndex < 0) {
-                    moveDirection = "right"
                     travelToIndex = Math.abs(travelToIndex)
+                    initialFieldArray[travelFromIndex] = 0
+                    for (let m = travelFromIndex; m >= 0; m--) {
+                        leftIndexes = travelFromIndex - travelToIndex;
+                        if (travelToIndex >= initialFieldArray.length) {
+                            break;
+                        }
+                        if (initialFieldArray[leftIndexes] === 0) {
+                            initialFieldArray[leftIndexes] = 1
+                            break;
+                        } else {
+                            travelToIndex++
+                            continue;
+                        }
+                    }
                 }
                 break;
 
@@ -106,62 +123,64 @@ function ladyBugs(array) {
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [ 1, '1',
-'0 left 0',
-'0 left 0']
+    [3, '0 1 2',
+'0 right 1',
+'1 right 1',
+'2 right 1']
 
 )
 
 
-/* function ladybugs(array) {
-  let workingArray = array.slice();
-  let fieldSize = workingArray.shift();
-  let bugsPosition = workingArray.shift().split(' ');
-  let finalBugsArray = new Array(fieldSize).fill(0);
+function ladybugs(array) {
+    let workingArray = array.slice();
+    let fieldSize = workingArray.shift();
+    let bugsPosition = workingArray.shift().split(' ');
+    let finalBugsArray = new Array(fieldSize).fill(0);
 
-  for (const position of bugsPosition) {
-    let currentBug = Number(position);
-    if (currentBug < 0 || currentBug >= fieldSize) {
-      continue;
-    }
-    finalBugsArray[currentBug] = 1;
-  }
-
-  for (let i = 0; i < workingArray.length; i++) {
-    let [ladybugIndex, command, jumpLength] = workingArray[i].split(' ');
-
-    ladybugIndex = Number(ladybugIndex);
-
-    if (ladybugIndex < 0 || ladybugIndex >= finalBugsArray.length || finalBugsArray[ladybugIndex] !== 1) {
-      continue;
+    for (const position of bugsPosition) {
+        let currentBug = Number(position);
+        if (currentBug < 0 || currentBug >= fieldSize) {
+            continue;
+        }
+        finalBugsArray[currentBug] = 1;
     }
 
-    // Free Position
-    finalBugsArray[ladybugIndex] = 0;
+    for (let i = 0; i < workingArray.length; i++) {
+        let [ladybugIndex, command, jumpLength] = workingArray[i].split(' ');
 
-    jumpLength = Number(jumpLength);
-    
-    if (command === 'left') {
-      jumpLength = -jumpLength;
+        ladybugIndex = Number(ladybugIndex);
+
+        if (ladybugIndex < 0 || ladybugIndex >= finalBugsArray.length || finalBugsArray[ladybugIndex] !== 1) {
+            continue;
+        }
+
+        // Free Position
+        finalBugsArray[ladybugIndex] = 0;
+
+        jumpLength = Number(jumpLength);
+
+        if (command === 'left') {
+            jumpLength = -jumpLength;
+        }
+
+        ladybugIndex += jumpLength;
+        while (ladybugIndex >= 0 && ladybugIndex < finalBugsArray.length) {
+            if (finalBugsArray[ladybugIndex] === 0) {
+                finalBugsArray[ladybugIndex] = 1;
+                break;
+            }
+            ladybugIndex += jumpLength;
+        }
     }
 
-    ladybugIndex += jumpLength;
-    while (ladybugIndex >= 0 && ladybugIndex < finalBugsArray.length) {
-      if (finalBugsArray[ladybugIndex] === 0) {
-        finalBugsArray[ladybugIndex] = 1;
-        break;
-      }
-      ladybugIndex += jumpLength;
-    }
-  }
-
-  console.log(finalBugsArray.join(' '));
+    console.log(finalBugsArray.join(' '));
 }
 ladybugs(
-    [3, '0 1',
-        '0 right 1',
-        '2 right 1'])
- */
+    [10, '0 1 2',
+        '0 right 2',]
+
+)
+
 
 
 
