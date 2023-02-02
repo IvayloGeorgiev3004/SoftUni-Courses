@@ -42,6 +42,7 @@ function ladyBugs(array) {
             continue;
         }
         if (travelToIndex >= fieldSize) {
+            initialFieldArray[travelFromIndex] = 0;
             continue;
         }
         if (travelToIndex < 0 && moveDirection === "left") {
@@ -124,7 +125,8 @@ function ladyBugs(array) {
     console.log(initialFieldArray.join(" "))
 }
 ladyBugs(
-    [100, '-2 -3 -4 12 32 89 6 1 12 32 89 6 1 12 32 1 1 11 1', '0 right 5','6 right 2','7 left 1','19 left 0','-12 left 12','0 left 0','12 right 0','32 right 120','89 left 260']
+    /* [40, '32', '32 right 120'] */
+    [2, '0', '0 right 3']
 
 )
 
@@ -174,7 +176,8 @@ function ladybugs(array) {
     console.log(finalBugsArray.join(' '));
 }
 ladybugs(
-    [100, '-2 -3 -4 12 32 89 6 1 12 32 89 6 1 12 32 1 1 11 1', '0 right 5','6 right 2','7 left 1','19 left 0','-12 left 12','0 left 0','12 right 0','32 right 120','89 left 260']
+  /*   [40, '32', '32 right 120'] */
+    [2, '0', '0 right 3']
 
 )
 
