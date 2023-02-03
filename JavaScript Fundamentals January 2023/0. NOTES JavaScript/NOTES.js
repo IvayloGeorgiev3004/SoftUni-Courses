@@ -1,9 +1,4 @@
-МАСИВИ
-let array = ["cat", "dog", "parrot"]
-array.join("-")
-debugger
-Array // МАСИВИ
-Array.length //дължина на масива/
+
 
 АРГУМЕНТИ
 input // Аргументи от масива
