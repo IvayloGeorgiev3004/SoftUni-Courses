@@ -176,7 +176,7 @@ function ladybugs(array) {
     console.log(finalBugsArray.join(' '));
 }
 ladybugs(
-  /*   [40, '32', '32 right 120'] */
+    /*   [40, '32', '32 right 120'] */
     [2, '0', '0 right 3']
 
 )
