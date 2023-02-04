@@ -1,29 +1,28 @@
 function ladyBugs(array) {
     let fieldSize = array[0]
-    let bugsStartPosition = array.slice(1, 2)
+    let bugsStartPosition = array.slice(1, 2).join(" ").split(" ")
     let bugsCommands = array.slice(2)
     let startingFiled = []
 
     for (let i = 0; i < fieldSize; i++) {
         startingFiled.push(0)
     }
-    bugsStartPosition = bugsStartPosition.join(" ")
-let newTest = bugsStartPosition.split(" ")
- 
-  /*   for (let commands of bugsStartPosition) {
-         newTest = commands.split(" ")
-        
-    } */
-    for (let forLoop of newTest){
-        let bugsPositions = Number(newNew)
-        debugger
+
+    for (let bugsPositions of bugsStartPosition) {
+        let addBugsToField = bugsPositions
+        if (addBugsToField < 0 || addBugsToField >= fieldSize || addBugsToField === "") {
+            continue;
+        }
+        startingFiled[addBugsToField] = 1
     }
 
-    
+    debugger
+
+
 
 }
 ladyBugs([
-    3, '0 2',
+    3, '1 0',
     '0 right 1',
     '2 right 1'])
 
