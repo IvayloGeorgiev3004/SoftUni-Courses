@@ -31,8 +31,10 @@ function ladyBugs(array) {
         }
         if (bugFlyDirection === "left" && bugFlyLength < 0) {
             bugFlyDirection = "right"
+            bugFlyLength = Math.abs(bugFlyLength)
         } else if (bugFlyDirection === "right" && bugFlyLength < 0) {
             bugFlyDirection = "left"
+            bugFlyLength = Math.abs(bugFlyLength)
         }
         switch (bugFlyDirection) {
             case "right":
@@ -63,5 +65,6 @@ function ladyBugs(array) {
     console.log(startingFiled.join(" "))
 
 }
-ladyBugs([10, '8 9',
-    '9 left 1',])
+ladyBugs([5, '3',
+    '3 left 2',
+    '1 left -2'])
