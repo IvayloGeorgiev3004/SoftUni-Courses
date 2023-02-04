@@ -126,12 +126,13 @@ function ladyBugs(array) {
 }
 ladyBugs(
     /* [40, '32', '32 right 120'] */
-    [2, '0', '0 right 3']
+    ([3, '0 1',
+    '0 right 1',])
 
 )
 
 
-function ladybugs(array) {
+/* function ladybugs(array) {
     let workingArray = array.slice();
     let fieldSize = workingArray.shift();
     let bugsPosition = workingArray.shift().split(' ');
@@ -175,11 +176,10 @@ function ladybugs(array) {
 
     console.log(finalBugsArray.join(' '));
 }
-ladybugs(
-    /*   [40, '32', '32 right 120'] */
-    [2, '0', '0 right 3']
+ladybugs(  [40, '32', '32 right 120'] 
+[2, '0', '0 right 3']) */
+  
 
-)
 
 
 

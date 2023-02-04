@@ -25,30 +25,43 @@ function ladyBugs(array) {
         if (bugFlyFromIndex < 0 || bugFlyFromIndex >= fieldSize || startingFiled[(bugFlyFromIndex)] !== 1) {
             continue;
         }
-        if (bugFlyLength + bugFlyFromIndex >= fieldSize) {
+        if (bugFlyLength >= fieldSize) {
             startingFiled[bugFlyFromIndex] = 0
-            debugger
             continue;
         }
-        
+        if (bugFlyDirection === "left" && bugFlyLength < 0) {
+            bugFlyDirection = "right"
+        } else if (bugFlyDirection === "right" && bugFlyLength < 0) {
+            bugFlyDirection = "left"
+        }
+        switch (bugFlyDirection) {
+            case "right":
+                startingFiled[bugFlyFromIndex] = 0
+                while (bugFlyFromIndex < fieldSize) {
+                    bugFlyFromIndex += bugFlyLength
+                    if (startingFiled[bugFlyFromIndex] === 0) {
+                        startingFiled[bugFlyFromIndex] = 1
+                        break;
+                    }
+                }
+
+                break;
+            case "left":
+                startingFiled[bugFlyFromIndex] = 0
+                while (bugFlyFromIndex >= 0) {
+                    bugFlyFromIndex -= bugFlyLength
+                    if (startingFiled[bugFlyFromIndex] === 0) {
+                        startingFiled[bugFlyFromIndex] = 1
+                        break;
+                    }
+                }
+                break;
+        }
+
     }
 
     console.log(startingFiled.join(" "))
 
 }
-ladyBugs([3, '0 1',
-    '1 right 2',
-    '10 left 1'])
-
-/* function testing (array) {
-    let newArray = array[0].split("|")
-    for (let rooms of newArray){
-        let commands = rooms.split(" ")
-            let command = commands[0]
-            let value = Number(commands[1])
-            
-    }
-    
-    
-}
-testing(["rat 10|bat 20|potion 10|rat 10|chest 100|boss 70|chest 1000"]) */
+ladyBugs([10, '8 9',
+    '9 left 1',])
