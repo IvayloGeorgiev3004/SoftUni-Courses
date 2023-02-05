@@ -7,3 +7,4 @@ function repeatString(string, repeatTimes) {
 }
 
 repeatString("abc", 3)
+

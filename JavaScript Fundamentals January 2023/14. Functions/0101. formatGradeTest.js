@@ -16,7 +16,6 @@ function formatGradeTest(grade) {
 
         let gradeValue = gradeNum < 3 ? "2" : gradeNum.toFixed(2)
         return (`${grade} (${(gradeValue)})`)
-        debugger
     }
 
     let result12 = formatGrade(grade)
