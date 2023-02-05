@@ -22,5 +22,3 @@ function formatGradeTest(grade) {
     return result12
 } console.log(formatGradeTest(2))
 
-
-/* formatGrade(22) */

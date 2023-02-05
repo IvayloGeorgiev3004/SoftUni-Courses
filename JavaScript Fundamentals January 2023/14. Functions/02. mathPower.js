@@ -6,7 +6,4 @@ function mathPower(number, power) {
 
 }
 console.log((mathPower(2, 8)))
-// function sumOfTwoNumbers(a, b){
-//     return a + b
-// }
 
