@@ -23,6 +23,6 @@ function signCheck(num1, num2, num3) {
     }
 
 }
-console.log(signCheck(-5,
+console.log(signCheck(-3,
     12,
-    -15))
+    -12))
