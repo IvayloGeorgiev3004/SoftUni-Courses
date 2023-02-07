@@ -4,6 +4,7 @@ function passwordValidator(password) {
     let twoDigitsCounter = 0;
     let onlyLettersAndDigitsValidator = 0;;
     let onlyLetAndNumFlag = false;
+    
     while (index < password.length) {
         if (password.length < 6 || password > 10) {
             if (lengthValidator === false) {
