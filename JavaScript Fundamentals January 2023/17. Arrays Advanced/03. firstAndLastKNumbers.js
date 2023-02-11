@@ -4,8 +4,6 @@ function firstAndLastKNumbers(array) {
     console.log(slicedArray.slice(0, numberOfElements).join(" "))
     slicedArray.reverse()
     console.log(slicedArray.slice(0, numberOfElements).reverse().join(" "))
-    debugger
-
 }
 firstAndLastKNumbers([3,
     6, 7, 8, 9])
