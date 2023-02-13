@@ -5,4 +5,4 @@ function smallestTwoNumbers(array) {
     return finalResult.join(" ")
 
 }
-smallestTwoNumbers([30, 15, 50, 5])
+smallestTwoNumbers([30, 15, 4, 5])
