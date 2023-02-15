@@ -55,20 +55,4 @@ function arrayManipulator(array, commands) {
 arrayManipulator([1, 2, 3, 4, 5],
     ['addMany 5 9 8 7 6 5', 'contains 15', 'remove 3', 'shift 1', 'print'])
 
-// let arr = [1, 2, 3, 4, 5, 6, 7]
-// let sumArray = [];
-// let numToPush = 0;
-// while (arr.length > 0) {
-//     if (arr.length === 1) {
-//         sumArray.push(arr.shift())
-//     } else {
-//         numToPush = arr.shift() + arr.shift()
-//         sumArray.push(numToPush)
-//     }
-
-// }
-
-
-// debugger
-
 
