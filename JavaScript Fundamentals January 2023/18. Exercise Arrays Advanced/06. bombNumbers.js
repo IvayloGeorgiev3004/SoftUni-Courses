@@ -21,18 +21,18 @@ function bombNumbers(fieldArray, secondArray) {
     }
     console.log(fieldArray.reduce((a, b) => a + b, 0))
 }
-bombNumbers([1, 2, 1, 1, 2, 1, 1, 2, 2, 1], [2,0])
+bombNumbers([1, 2, 1, 1, 2, 1, 1, 2, 2, 1], [2, 0])
 
 
 function bombNumbers2(sequence, bomb) {
     let specialNumber = bomb[0];
     let bombPower = bomb[1];
- 
+
     while (sequence.includes(specialNumber)) {
         let index = sequence.indexOf(specialNumber);
         let elementsToRemove = bombPower * 2 + 1;
         let startIndex = index - bombPower;
- 
+
         if (startIndex < 0) {
             elementsToRemove += startIndex;
             startIndex = 0;
@@ -41,4 +41,4 @@ function bombNumbers2(sequence, bomb) {
     }
     console.log(sequence.reduce((a, b) => a + b, 0));
 }
-bombNumbers2([1, 2, 1, 1, 2, 1, 1, 2, 2, 1], [2,0])
+bombNumbers2([1, 2, 1, 1, 2, 1, 1, 2, 2, 1], [2, 0])
