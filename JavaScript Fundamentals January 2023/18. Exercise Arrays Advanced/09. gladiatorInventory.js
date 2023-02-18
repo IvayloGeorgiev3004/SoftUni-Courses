@@ -51,6 +51,6 @@ function gladiatorInventory(array) {
 
 }
 gladiatorInventory(['SWORD Shield Spear',
-'Trash Bow',
-'Repair Shield',
-'Upgrade Helmet-V'])
+    'Trash Bow',
+    'Repair Shield',
+    'Upgrade Helmet-V'])
