@@ -51,8 +51,8 @@ function phoneShop(array) {
 }
 phoneShop(["SamsungA50, MotorolaG5, HuaweiP10",
 
-"Last - SamsungA50",
+    "Last - SamsungA50",
 
-"Add - MotorolaG5",
+    "Add - MotorolaG5",
 
-"End"])
+    "End"])
