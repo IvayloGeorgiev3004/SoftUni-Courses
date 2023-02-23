@@ -27,8 +27,7 @@ function cookingMasterClass(array) {
     } else {
         console.log(`${((totalPrice - budget) / 100).toFixed(2)}$ more needed.`)
     }
-
-    debugger
+    
 }
 cookingMasterClass([100,
 
