@@ -7,10 +7,14 @@ function numbers(array) {
         switch (command) {
             case "Add": let valueToPush = Number(commands[1]);
                 addAtTheEnd(valueToPush, workingArray); break;
-            case "Remove": let valueToRemove = Number(commands[1]); debugger;
-            removeValue(valueToRemove,workingArray); debugger;
-            case "Replace":// TODO
-            case "Collapse": // TODO
+            case "Remove": let valueToRemove = Number(commands[1]);
+                removeValue(valueToRemove, workingArray); break;
+            case "Replace": let valueToReplace = Number(commands[1]);
+                let valueToAdd = Number(commands[2]);
+                replaceValue(valueToReplace, valueToAdd, workingArray); break;
+            case "Collapse": let number = Number(commands[1]);
+            workingArray = workingArray.filter(a => a > number); break;
+            case "Finish": console.log(workingArray.join(" "))
         }
     }
 
@@ -24,11 +28,19 @@ function numbers(array) {
             arr.splice(indexToRemove, 1)
         }
     }
+
+    function replaceValue(valueToReplace, valueToAdd, arr) {
+        if (arr.indexOf(valueToReplace) !== -1) {
+            let indexToReplace = arr.indexOf(valueToReplace);
+            arr.splice(indexToReplace, 1, valueToAdd)
+        }
+    }
+
 }
-numbers((["1 4 5 19",
+numbers(["1 4 5 19",
 
-    "Add 1",
+"Add 1",
 
-    "Remove 4",
+"Remove 4",
 
-    "Finish"]))
+"Finish"])
