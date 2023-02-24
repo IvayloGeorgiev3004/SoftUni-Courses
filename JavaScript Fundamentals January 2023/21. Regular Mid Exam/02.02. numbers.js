@@ -13,7 +13,7 @@ function numbers(array) {
                 let valueToAdd = Number(commands[2]);
                 replaceValue(valueToReplace, valueToAdd, workingArray); break;
             case "Collapse": let number = Number(commands[1]);
-            workingArray = workingArray.filter(a => a > number); break;
+                workingArray = workingArray.filter(a => a > number); break;
             case "Finish": console.log(workingArray.join(" "))
         }
     }
@@ -39,8 +39,8 @@ function numbers(array) {
 }
 numbers(["1 4 5 19",
 
-"Add 1",
+    "Add 1",
 
-"Remove 4",
+    "Remove 4",
 
-"Finish"])
+    "Finish"])
