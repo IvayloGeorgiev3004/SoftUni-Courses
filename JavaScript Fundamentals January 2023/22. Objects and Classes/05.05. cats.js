@@ -11,7 +11,8 @@ function cats(array) {
 
     for (let i = 0; i < array.length; i++) {
         let [name, age] = array[i].split(" ")
-        debugger
+        let newCat = new Cat(name, age)
+        newCat.meow()
     }
 }
 cats(['Mellow 2', 'Tom 5'])
