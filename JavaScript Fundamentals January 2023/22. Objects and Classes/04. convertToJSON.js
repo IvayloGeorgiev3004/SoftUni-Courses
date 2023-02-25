@@ -1,4 +1,4 @@
-function convertToJSON(name, lastName, hairColor){
+function convertToJSON(name, lastName, hairColor) {
     let personInfo = {
         name,
         lastName,

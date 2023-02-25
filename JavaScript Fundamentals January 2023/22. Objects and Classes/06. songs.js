@@ -17,15 +17,14 @@ function songs(array) {
         let [typeList, name, time] = array[i].split("_")
         let song = new Song(typeList, name, time)
         songs.push(song)
-        debugger
-        if (finalTypeList === "all") {
-            song.all()
-        } else {
-            let filtered = songs.filter(a => a.typeList === typeList)
-            console.log(filtered)
-        }
     }
 
+    for (let i = 0; i< songsNumber;i++){
+        let currentSong = songs[i]
+        let currentTypeList = currentSong.typeList
+
+        debugger
+    }
 
 }
 songs([3,
