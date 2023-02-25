@@ -1,34 +1,32 @@
 function songs(array) {
-    let songsNumber = Number(array.shift())
-    let finalTypeList = array.pop()
-    let songs = []
+    let totalNumberOfSongs = Number(array.shift());
+    let typeOfList = array.pop();
+    let newSongsList = []
+
     class Song {
-        constructor(typeList, name, time) {
-            this.typeList = typeList;
+        constructor(type, name, time) {
+            this.type = type;
             this.name = name;
-            this.time = time;
+            this.time = time
         }
-        all() {
-            console.log(this.name)
+    }
+
+    for (let arguments of array) {
+        let [type, name, duration] = arguments.split("_")
+        let song = new Song(type, name, duration)
+        newSongsList.push(song)
+    }
+    for (let i = 0; i < totalNumberOfSongs; i++) {
+        let currentSong = newSongsList[i]
+        if (typeOfList === "all") {
+            console.log(currentSong.name)
+        } else if (currentSong.type === typeOfList) {
+            console.log(currentSong.name)
         }
-
     }
-    for (let i = 0; i < songsNumber; i++) {
-        let [typeList, name, time] = array[i].split("_")
-        let song = new Song(typeList, name, time)
-        songs.push(song)
-    }
-
-    for (let i = 0; i< songsNumber;i++){
-        let currentSong = songs[i]
-        let currentTypeList = currentSong.typeList
-
-        debugger
-    }
-
+debugger
 }
-songs([3,
-    'favourite_DownTown_3:14',
-    'favourite_Kiss_4:16',
-    'favourite_Smooth Criminal_4:01',
-    'favourite'])
+songs([2,
+    'like_Replay_3:15',
+    'ban_Photoshop_3:48',
+    'all'])
