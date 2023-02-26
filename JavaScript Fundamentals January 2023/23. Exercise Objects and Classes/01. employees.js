@@ -19,3 +19,19 @@ employees([
     'Juan Peterson',
     'Brendan Villarreal'
 ])
+
+function employees2(array) {
+
+    let employeeInfo = {};
+    for (let info of array) {
+        employeeInfo.name = info;
+        employeeInfo.number = Number(info.length)
+        console.log(`Name: ${employeeInfo.name} -- Personal Number: ${employeeInfo.number}`)
+    }
+}
+employees2([
+    'Silas Butler',
+    'Adnaan Buckley',
+    'Juan Peterson',
+    'Brendan Villarreal'
+])
