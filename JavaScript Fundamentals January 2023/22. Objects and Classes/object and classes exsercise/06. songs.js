@@ -1,7 +1,6 @@
 function songs(array) {
     let numberOfSongs = Number(array.shift());
     let typeOfSongs = array.pop();
-    let finalSongsList = [];
 
     class Song {
         constructor(type, name, time) {
@@ -22,9 +21,7 @@ function songs(array) {
         } else if (typeOfSongs === songs.type) {
             songs.callSongNames()
         }
-        finalSongsList.push(songs)
     }
-    debugger
 
 }
 songs([4,
