@@ -4,13 +4,13 @@ function storeProvision(array, array2) {
 
     for (let i = 0; i < array.length; i += 2) {
         productsObj.name = array[i]
-        productsObj.quantity = Number(array[i+1]) 
+        productsObj.quantity = Number(array[i + 1])
         finalArray.push(productsObj)
         debugger
     }
 
     for (let i = 0; i < array2.length; i += 2) {
-       debugger
+        debugger
 
     }
     debugger
