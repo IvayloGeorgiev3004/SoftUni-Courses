@@ -28,11 +28,11 @@ function movies(arrayOfCommands) {
 
     });
     debugger
-   moviesArray.forEach(movie => {
-    if (movie.name && movie.date && movie.director){
-        console.log(JSON.stringify(movie))
-    }
-   })
+    moviesArray.forEach(movie => {
+        if (movie.name && movie.date && movie.director) {
+            console.log(JSON.stringify(movie))
+        }
+    })
 }
 
 movies([
