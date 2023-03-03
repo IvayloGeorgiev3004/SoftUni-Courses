@@ -4,7 +4,7 @@ function employee(array) {
         let personInfo = {};
         personInfo.name = element
         personInfo.number = element.length
-        console.log(`Name: ${personInfo.name}-- Personal Number: ${personInfo.number}`)
+        console.log(`Name: ${personInfo.name} -- Personal Number: ${personInfo.number}`)
     });
 
 
