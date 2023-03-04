@@ -13,13 +13,13 @@ function inventory(arrayInventory) {
         let hero = new Hero(heroName, heroLevel, heroItems)
         heroesArray.push(hero)
     }
-   let sortedHeroes = heroesArray.sort((el1, el2) => el1.level - el2.level)
+    let sortedHeroes = heroesArray.sort((el1, el2) => el1.level - el2.level)
 
-   sortedHeroes.forEach(element => {
-    console.log(`Hero: ${element.name}`)
-    console.log(`level => ${element.level}`)
-    console.log(`items => ${element.items}`)
-   })
+    sortedHeroes.forEach(element => {
+        console.log(`Hero: ${element.name}\nlevel => ${element.level}\nitems => ${element.items}`)
+        // console.log(`level => ${element.level}`)
+        // console.log(`items => ${element.items}`)
+    })
 }
 inventory([
     'Isacc / 25 / Apple, GravityGun',
