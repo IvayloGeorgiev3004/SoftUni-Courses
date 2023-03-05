@@ -6,12 +6,12 @@ function makeADictionary(arrayDictionary) {
         let name = Object.keys(object)
         let description = Object.values(object)
         finalDictObj[name] = description
-        
+
     }
-    let sorted = Object.keys(finalDictObj).sort((a,b)=> a.localeCompare(b))
-    
-    for (let keys of sorted){
-        console.log(`${keys} ---- ${finalDictObj[keys]}`)
+    let sorted = Object.keys(finalDictObj).sort((a, b) => a.localeCompare(b))
+
+    for (let keys of sorted) {
+        console.log(`Term: ${keys} => Definition: ${finalDictObj[keys]}`)
         debugger
     }
 
@@ -22,4 +22,4 @@ makeADictionary([
     '{"Watermelon":"The large fruit of a plant of the gourd family, with smooth green skin, red pulp, and watery juice."} ',
     '{"Music":"Vocal or instrumental sounds (or both) combined in such a way as to produce beauty of form, harmony, and expression of emotion."} ',
     '{"Art":"The expression or application of human creative skill and imagination, typically in a visual form such as painting or sculpture, producing works to be appreciated primarily for their beauty or emotional power."} '
-    ])
+])
