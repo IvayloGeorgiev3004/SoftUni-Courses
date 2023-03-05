@@ -22,7 +22,7 @@ class Laptop {
         return JSON.stringify(this.info)
     }
     get price() {
-        return Number(800 - (info.age * 2) + (this.quality * 0.5))
+        return Number(800 - (this.info.age * 2) + (this.quality * 0.5))
     }
 }
 
