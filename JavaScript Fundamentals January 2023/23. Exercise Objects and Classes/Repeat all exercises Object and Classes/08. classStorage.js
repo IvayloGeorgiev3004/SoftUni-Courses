@@ -12,12 +12,9 @@ class Storage {
     }
 
     getProducts() {
-    
         return this.storage.map(element => JSON.stringify(element)).join('\n')
-       
     }
 
-    
 }
 
 let productOne = { name: 'Cucamber', price: 1.50, quantity: 15 };
