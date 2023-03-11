@@ -30,8 +30,8 @@ function schoolGrade(array) {
     
     sorted.forEach(el =>{
         console.log(`${el[0]}: ${el[1]}`)
-    })
-    
+    })    
+
 }
 schoolGrade(['Lilly 4 6 6 5',
 'Tim 5 6',
