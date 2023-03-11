@@ -2,35 +2,41 @@ function schoolGrade(array) {
     let schoolRegister = {
     }
 
-    for (let names of array) {
+    for (let names of array) {;
         let commands = names.split(" ")
-        let name = commands.splice(0, 1).join(" ")
-        let grades = commands.map(Number)
+        let name = commands.splice(0, 1).join(" ");
+        let grades = commands.map(Number);
         if (!schoolRegister.hasOwnProperty(name)){
-            schoolRegister[name] = grades
+            schoolRegister[name] = grades;
         } else {
            let scores = schoolRegister[name]
             grades.map(element => {
                 scores.push(element)
             })
         }
-        
+
     }
+    let finalResultObj = {};
     for (let students of Object.entries(schoolRegister)){
         debugger
-       let studentName = students[0]
-       let scores = students[1]
-       let totalScore = scores.length
-          
-          debugger
-
-        console.log(test)
+       let studentName = students[0];
+       let scores = students[1];
+       let totalScore = scores.length;
+       scores = scores.reduce((a,b) => a+b,0);
+        let averageScore = (scores / totalScore).toFixed(2);
+          finalResultObj[studentName] = averageScore
     }
+    let sorted = Object.entries(finalResultObj).sort((name, name2) => name[0].localeCompare(name2[0]))
+    
+    sorted.forEach(el =>{
+        console.log(`${el[0]}: ${el[1]}`)
+    })
+    
 }
 schoolGrade(['Lilly 4 6 6 5',
-    'Tim 5 6',
-    'Tammy 2 4 3',
-    'Tim 6 6'])
+'Tim 5 6',
+'Tammy 2 4 3',
+'Tim 6 6'])
 
 // function schoolGrades(input) {
 //     let studentsObj = {};
