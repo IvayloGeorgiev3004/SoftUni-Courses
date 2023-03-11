@@ -16,7 +16,16 @@ function schoolGrade(array) {
         }
         
     }
+    for (let students of Object.entries(schoolRegister)){
+        debugger
+       let studentName = students[0]
+       let scores = students[1]
+       let totalScore = scores.length
+          
+          debugger
 
+        console.log(test)
+    }
 }
 schoolGrade(['Lilly 4 6 6 5',
     'Tim 5 6',
