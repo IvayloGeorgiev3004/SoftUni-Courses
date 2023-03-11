@@ -10,7 +10,9 @@ function schoolGrade(array) {
             schoolRegister[name] = grades
         } else {
            let scores =  schoolRegister[name]
-    
+            grades.map(element => {
+                scores.push(element)
+            })
            debugger
            schoolRegister[name] = scores
            debugger
