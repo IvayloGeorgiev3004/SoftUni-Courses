@@ -9,17 +9,13 @@ function schoolGrade(array) {
         if (!schoolRegister.hasOwnProperty(name)){
             schoolRegister[name] = grades
         } else {
-           let scores =  schoolRegister[name]
+           let scores = schoolRegister[name]
             grades.map(element => {
                 scores.push(element)
             })
-           debugger
-           schoolRegister[name] = scores
-           debugger
         }
         
     }
-    debugger
 
 }
 schoolGrade(['Lilly 4 6 6 5',
