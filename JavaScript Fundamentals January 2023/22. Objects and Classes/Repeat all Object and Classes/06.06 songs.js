@@ -9,7 +9,6 @@ function songs(array) {
     }
 
     let totalSongs = array.shift()
-    debugger
     array.forEach(element => {
         let [typeList, name, duration] = element.split("_")
         debugger
