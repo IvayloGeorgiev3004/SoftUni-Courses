@@ -14,7 +14,5 @@ function cats(array) {
         cat.meow()
     });
 
-
-
 }
 cats(['Mellow 2', 'Tom 5'])
