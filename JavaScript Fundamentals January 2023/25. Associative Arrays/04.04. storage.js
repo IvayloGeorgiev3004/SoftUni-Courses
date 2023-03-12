@@ -5,6 +5,7 @@ function storage(array) {
         let [product, quantity] = commands.split(" ")
         quantity = Number(quantity)
         if (!listOfProducts.has(product)) {
+            debugger
             listOfProducts.set(product, quantity)
         } else {
             let currProductQuantity = listOfProducts.get(product)
