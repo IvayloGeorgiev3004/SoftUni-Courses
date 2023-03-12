@@ -26,11 +26,14 @@ function schoolGrade(array) {
         let averageScore = (scores / totalScore).toFixed(2);
           finalResultObj[studentName] = averageScore
     }
-    let sorted = Object.entries(finalResultObj).sort((name, name2) => name[0].localeCompare(name2[0]))
+    // let sorted = Object.entries(finalResultObj).sort((name, name2) => name[0].localeCompare(name2[0]))
+
+    let sorted2 = Object.entries(finalResultObj).sort((name, name2) => {
+        name[0].localeCompare(name2[0])
     
-    sorted.forEach(el =>{
-        console.log(`${el[0]}: ${el[1]}`)
-    })    
+    // sorted.forEach(el =>{
+    //     console.log(`${el[0]}: ${el[1]}`)
+    // })    
 
 }
 schoolGrade(['Lilly 4 6 6 5',
