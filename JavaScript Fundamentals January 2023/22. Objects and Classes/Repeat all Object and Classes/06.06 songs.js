@@ -8,20 +8,35 @@ function songs(array) {
 
     }
 
+    let finalArray = []
     let totalSongs = array.shift()
-    array.forEach(element => {
-        let [typeList, name, duration] = element.split("_")
-        debugger
+    let finalTypeList = ""
+    for (let i = 0; i < array.length; i++) {
+        let [typeList, name, duration] = array[i].split("_")
+        if (i === array.length - 1) {
+            finalTypeList = array[i]
+        } else {
+            let song = new Songs(typeList, name, duration)
+            finalArray.push(song)
+        }
 
-    });
+    }
+    if (finalTypeList === "all") {
+        finalArray.forEach(element => {
+            console.log(`${element.name}`)
+        })
+    } else {
+        finalArray.forEach(element => {
+            if (element.typeList === finalTypeList) {
+                console.log(`${element.name}`)
+            }
+        })
+    }
 
 }
-songs([3,
-
+songs([4,
     'favourite_DownTown_3:14',
-
-    'favourite_Kiss_4:16',
-
-    'favourite_Smooth Criminal_4:01',
-
-    'favourite'])
+    'listenLater_Andalouse_3:24',
+    'favourite_In To The Night_3:58',
+    'favourite_Live It Up_3:48',
+    'listenLater'])
