@@ -17,6 +17,8 @@ function minerTask(array) {
         }
     }
     for (let finalResult of finalMap.entries()) {
+        console.log(typeof finalResult)
+        debugger
         let resources = finalResult.shift()
         let quantity = Number(finalResult.shift())
         console.log(`${resources} -> ${quantity}`)
