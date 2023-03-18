@@ -2,7 +2,6 @@ function hardWord(array) {
     let letterString = array.shift()
     let finalLetter = letterString;
     let words = array.shift()
-    // let sortedWords = words.sort((a, b) => a.length - b.length)
     let wordsObj = {}
     let currentWord = ""
 
