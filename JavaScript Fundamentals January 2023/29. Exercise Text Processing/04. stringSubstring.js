@@ -1,23 +1,23 @@
-// function stringSubstring(word, text) {
-//     let textArr = text.split(" ")
-//     let wordToLowerCase = word.toLowerCase()
-//     let trigger = false;
+function stringSubstring(word, text) {
+    let textArr = text.split(" ")
+    let wordToLowerCase = word.toLowerCase()
+    let trigger = false;
 
-//     for (let singleWords of textArr) {
-//         singleWords = singleWords.toLowerCase()
-//         if (singleWords === wordToLowerCase) {
-//             console.log(word)
-//             trigger = true;
-//             break;
-//         }
-//     }
+    for (let singleWords of textArr) {
+        singleWords = singleWords.toLowerCase()
+        if (singleWords === wordToLowerCase) {
+            console.log(word)
+            trigger = true;
+            break;
+        }
+    }
 
-//     if (trigger === false) {
-//         console.log(`${word} not found!`)
-//     }
-// }
-// stringSubstring('python',
-//     'JavaScript is the best programming language')
+    if (trigger === false) {
+        console.log(`${word} not found!`)
+    }
+}
+stringSubstring('python',
+    'JavaScript is the best programming language')
 
 function stringSubstring(word, text) {
 
