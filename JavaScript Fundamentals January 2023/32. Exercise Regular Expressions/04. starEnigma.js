@@ -1,54 +1,53 @@
 function starEnigma(array) {
     let count = Number(array.shift())
     let countRegex = /[SsTtAaRr]/g
-    let decryptedMessage = /@(?<planetName>[A-Z]+[a-z]*)[^@|\-|!|:|>|]*:(?<population>[\d]+)[^@|\-|!|:|>|]*!(?<attackType>[A|D]+)![^@|\-|!|:|>|]*->(?<soldierCount>[\d]+)/g
-    let finalResObj = {}
+    let decryptedMessage = /@(?<planetName>[A-Za-z]+)[^@:!\->]*:(?<population>\d+)[^@:!\->]*!(?<attackType>[A|D])![^@:!\->]*->(?<soldierCount>\d+)/g
+    let attackedPlanets = [];
+    let destroyedPlanets = [];
+    let finalMatch = ""
 
     for (let i = 0; i < count; i++) {
         let message = ""
         let match = array[i].match(countRegex)
-        let numToRemoveFromASCII = match.length;
-        for (let chars of array[i]) {
-            let currentCharCode = chars.charCodeAt(0) - numToRemoveFromASCII
-            let charToAdd = String.fromCharCode(currentCharCode)
-            message += charToAdd
+        let notEncrypted = array[i].match(decryptedMessage)
+        if (match !== null && notEncrypted === null) {
+            for (let chars of array[i]) {
+                let currentCharCode = chars.charCodeAt(0) - match.length;
+                let charToAdd = String.fromCharCode(currentCharCode)
+                message += charToAdd
+            }
         }
-        debugger
-        let finalMatch = decryptedMessage.exec(message)
-        if (finalMatch !== null) {
-
+        if (notEncrypted !== null) {
+            finalMatch = decryptedMessage.exec(notEncrypted)
             if (finalMatch.groups.attackType === "A") {
-                finalResObj[finalMatch.groups.planetName] = finalMatch.groups.attackType
+                attackedPlanets.push(finalMatch.groups.planetName)
             } else {
-                finalResObj[finalMatch.groups.planetName] = finalMatch.groups.attackType
+                destroyedPlanets.push(finalMatch.groups.planetName)
+            }
+            finalMatch = decryptedMessage.exec(message)
+        }
+        finalMatch = decryptedMessage.exec(message)
+        if (finalMatch !== null) {
+            if (finalMatch.groups.attackType === "A") {
+                attackedPlanets.push(finalMatch.groups.planetName)
+            } else {
+                destroyedPlanets.push(finalMatch.groups.planetName)
             }
             finalMatch = decryptedMessage.exec(message)
         }
     }
-    let finalArr = Object.entries(finalResObj).sort(([name], [name2]) => {
-        return name.localeCompare(name2)
+    attackedPlanets.sort((a, b) => a.localeCompare(b));
+    destroyedPlanets.sort((a, b) => a.localeCompare(b));
 
-    })
-    let attackedPlanets = [];
-    let destroyedPlanets = [];
-    for (let planets of finalArr) {
-        if (planets[1] === "A") {
-            attackedPlanets.push(planets[0])
-        } else {
-            destroyedPlanets.push(planets[0])
-        }
-    }
     console.log(`Attacked planets: ${attackedPlanets.length}`)
-    attackedPlanets.forEach(element => {
-        console.log(`-> ${element}`)
-    })
-
+    attackedPlanets.forEach(element => console.log(`-> ${element}`))
     console.log(`Destroyed planets: ${destroyedPlanets.length}`)
-    destroyedPlanets.forEach(element => {
-        console.log(`-> ${element}`)
-    })
+    destroyedPlanets.forEach(element => console.log(`-> ${element}`))
+
 }
 starEnigma(['3',
     "tt(''DGsvywgerx>6444444444%H%1B9444",
     'GQhrr|A977777(H(TTTT',
-    'EHfsytsnhf?8555&I&2C9555SR'])
+    'EHfsytsnhf?8555&I&2C9555SR', `@Coruscant:2000000000!D!->5000`])
+
+
