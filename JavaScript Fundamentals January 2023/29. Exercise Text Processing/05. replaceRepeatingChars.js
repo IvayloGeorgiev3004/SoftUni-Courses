@@ -7,7 +7,6 @@ function replaceRepeatingChars(string) {
             finalResult += char;
         }
         currentChar = char
-
     }
     console.log(finalResult)
 }
