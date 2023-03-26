@@ -1,6 +1,5 @@
 function secretChat(array) {
     let message = array.shift();
-    let trigger = false;
     let index = 0;
     let lines = array[index]
 
@@ -10,18 +9,14 @@ function secretChat(array) {
             case "ChangeAll":
                 let toReplace = lines.split(":|:")[1];
                 let replaceWith = lines.split(":|:")[2];
-                let newMessage = Array.from(message);
-                newMessage.forEach(element => {
-                    if (element === toReplace) {
-                        newMessage.splice(newMessage.indexOf(element), 1, replaceWith)
-                    }
-                })
-                message = newMessage.join("")
+                while (message.indexOf(toReplace) !== -1) {
+                    message = message.replace(toReplace, replaceWith)
+                }
                 console.log(message)
                 break;
             case "Reverse":
                 let word = lines.split(":|:")[1];
-                if (message.includes(word)) {
+                if (message.indexOf(word) !== -1) {
                     wordCutAndReverse(word);
                     console.log(message);
 
@@ -47,11 +42,9 @@ function secretChat(array) {
     }
 }
 secretChat([
-    'Hiware?uiy',
-    'ChangeAll:|:i:|:o',
-    'Reverse:|:?uoy',
-    'Reverse:|:jd',
-    'InsertSpace:|:3',
-    'InsertSpace:|:7',
+    'heVVodar!gniV',
+    'ChangeAll:|:V:|:l',
+    'Reverse:|:!gnil',
+    'InsertSpace:|:5',
     'Reveal'
 ])
