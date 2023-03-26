@@ -6,6 +6,5 @@ function extractMails(string) {
     match.forEach(element => {
         console.log(element)
     });
-
 }
 extractMails(`Just send email to s.miller@mit.edu and j.hopking@york.ac.uk for more information.`)
