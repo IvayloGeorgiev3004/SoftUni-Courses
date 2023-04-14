@@ -3,7 +3,7 @@ function plantDiscovery(array) {
     let map = new Map();
 
     for (let i = 0; i < plants; i++) {
-        let text = array.shift();
+        let text = array[i];
         let [plant, rarity] = text.split(`<->`);
         rarity = Number(rarity);
         let specifications = {
@@ -13,6 +13,7 @@ function plantDiscovery(array) {
         }
         map.set(plant, specifications)
     }
+    array.splice(0, plants)
     let index = 0;
     let currentInput = array[index];
     while (currentInput !== "Exhibition") {
@@ -65,7 +66,7 @@ function plantDiscovery(array) {
     debugger
     console.log(`Plants for the exhibition:`)
     for (let results of map) {
-        if (results[1].rarity === 0 ) {
+        if (results[1].rarity === 0) {
             console.log(`- ${results[0]}; Rarity: ${0}; Rating: ${(results[1].rating / results[1].counter).toFixed(2)}`)
         } else if (results[1].rating === 0) {
             console.log(`- ${results[0]}; Rarity: ${results[1].rarity}; Rating: ${(0).toFixed(2)}`)
