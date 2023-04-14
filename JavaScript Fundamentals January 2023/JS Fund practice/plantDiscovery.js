@@ -18,24 +18,42 @@ function plantDiscovery(array) {
     while (currentInput !== "Exhibition") {
         let tokens = currentInput.split(": ")
         let command = tokens[0];
+
         switch (command) {
             case "Rate": {
                 let [plant, rating] = tokens[1].split(" - ");
                 rating = Number(rating)
+                if (!map.has(plant)) {
+                    console.log(`error`)
+                    index++
+                    currentInput = array[index];
+                    continue
+                }
                 rate(plant, rating)
-
             }
 
                 break;
             case "Update": {
                 let [plant, rarity] = tokens[1].split(" - ");
                 rarity = Number(rarity)
+                if (!map.has(plant)) {
+                    console.log(`error`)
+                    index++
+                    currentInput = array[index];
+                    continue
+                }
                 update(plant, rarity)
             }
                 break;
             case "Reset": {
 
                 let plant = tokens[1];
+                if (!map.has(plant)) {
+                    console.log(`error`)
+                    index++
+                    currentInput = array[index];
+                    continue
+                }
                 reset(plant)
             }
                 break;
@@ -44,9 +62,17 @@ function plantDiscovery(array) {
         currentInput = array[index];
     }
 
+    debugger
     console.log(`Plants for the exhibition:`)
     for (let results of map) {
-        console.log(`- ${results[0]}; Rarity: ${results[1].rarity}; Rating: ${(results[1].rating / results[1].counter).toFixed(2)}`)
+        if (results[1].rarity === 0 ) {
+            console.log(`- ${results[0]}; Rarity: ${0}; Rating: ${(results[1].rating / results[1].counter).toFixed(2)}`)
+        } else if (results[1].rating === 0) {
+            console.log(`- ${results[0]}; Rarity: ${results[1].rarity}; Rating: ${(0).toFixed(2)}`)
+        } else {
+            console.log(`- ${results[0]}; Rarity: ${results[1].rarity}; Rating: ${(results[1].rating / results[1].counter).toFixed(2)}`)
+
+        }
     }
 
     function rate(plant, rating) {
@@ -74,11 +100,11 @@ function plantDiscovery(array) {
 
     }
 
-
 }
-plantDiscovery(["2",
+plantDiscovery(["3",
     "Candelabra<->10",
+    "Candelabra<->33",
     "Oahu<->10",
-    "Rate: Oahu - 7",
+    "Rate: Odahu - 7",
     "Rate: Candelabra - 6",
     "Exhibition"])
