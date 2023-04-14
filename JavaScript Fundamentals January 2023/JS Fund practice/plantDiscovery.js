@@ -8,7 +8,8 @@ function plantDiscovery(array) {
         rarity = Number(rarity);
         let specifications = {
             rarity,
-            rating:0,
+            rating: 0,
+            counter: 0,
         }
         map.set(plant, specifications)
     }
@@ -17,32 +18,67 @@ function plantDiscovery(array) {
     while (currentInput !== "Exhibition") {
         let tokens = currentInput.split(": ")
         let command = tokens[0];
-        switch(command){
-            case "Rate":
-                //TODO
+        switch (command) {
+            case "Rate": {
+                let [plant, rating] = tokens[1].split(" - ");
+                rating = Number(rating)
+                rate(plant, rating)
+
+            }
+
                 break;
-            case "Update":
-                //TODO
+            case "Update": {
+                let [plant, rarity] = tokens[1].split(" - ");
+                rarity = Number(rarity)
+                update(plant, rarity)
+            }
                 break;
-            case "Reset":
-                //TODO
-            break;
+            case "Reset": {
+
+                let plant = tokens[1];
+                reset(plant)
+            }
+                break;
         }
+        index++
+        currentInput = array[index];
     }
 
-    function rate(plant, rating){
+    console.log(`Plants for the exhibition:`)
+    for (let results of map) {
+        console.log(`- ${results[0]}; Rarity: ${results[1].rarity}; Rating: ${(results[1].rating / results[1].counter).toFixed(2)}`)
+    }
+
+    function rate(plant, rating) {
+        let plantSpecs = map.get(plant)
+        plantSpecs.rating += rating
+        plantSpecs.counter++
+        map.set(plant, plantSpecs)
+        return map;
 
     }
+
+    function update(plant, rarity) {
+        let plantSpecs = map.get(plant)
+        plantSpecs.rarity = rarity
+        map.set(plant, plantSpecs)
+        return map;
+
+    }
+
+    function reset(plant) {
+        let plantSpecs = map.get(plant)
+        plantSpecs.rating = 0;
+        map.set(plant, plantSpecs)
+        return map;
+
+    }
+
 
 }
-plantDiscovery(["3",
-    "Arnoldii<->4",
-    "Woodii<->7",
-    "Welwitschia<->2",
-    "Rate: Woodii - 10",
-    "Rate: Welwitschia - 7",
-    "Rate: Arnoldii - 3",
-    "Rate: Woodii - 5",
-    "Update: Woodii - 5",
-    "Reset: Arnoldii",
+plantDiscovery(["2",
+    "Candelabra<->10",
+    "Oahu<->10",
+    "Rate: Oahu - 7",
+    "Rate: Candelabra - 6",
     "Exhibition"])
