@@ -96,16 +96,18 @@ function plantDiscovery(array) {
     function reset(plant) {
         let plantSpecs = map.get(plant)
         plantSpecs.rating = 0;
+        plantSpecs.counter++;
         map.set(plant, plantSpecs)
         return map;
 
     }
-
 }
 plantDiscovery(["3",
     "Candelabra<->10",
     "Candelabra<->33",
     "Oahu<->10",
     "Rate: Odahu - 7",
+    "Rate: Candelabra - 6",
+    "Reset: Candelabra",
     "Rate: Candelabra - 6",
     "Exhibition"])
