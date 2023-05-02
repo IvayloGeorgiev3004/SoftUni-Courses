@@ -33,24 +33,24 @@ function worldTour(array) {
     console.log(`Ready for world tour! Planned stops: ${plannedStops}`)
 
     function addStop(index, string) {
-        if (index >= 0 && index <= plannedStops.length) {
-            return plannedStops = plannedStops.substring(0, index) + string + plannedStops.substring(index, plannedStops.length)
+        if (index >= 0 && index < plannedStops.length) {
+             plannedStops = plannedStops.slice(0, index) + string + plannedStops.slice(index, plannedStops.length)
         }
     }
     function removeStop(startIndex, endIndex) {
-        if (startIndex >= 0 && startIndex <= plannedStops.length && startIndex < endIndex && endIndex > 0 && endIndex <= plannedStops.length) {
-            return plannedStops = plannedStops.substring(0, startIndex) + plannedStops.substring(endIndex + 1, plannedStops.len)
+        if (startIndex >= 0 && startIndex < plannedStops.length && startIndex < endIndex && endIndex > 0 && endIndex < plannedStops.length) {
+             plannedStops = plannedStops.slice(0, startIndex) + plannedStops.slice(endIndex + 1, plannedStops.length)
         }
     }
     function switchString(oldString, newString) {
         if (plannedStops.includes(oldString)) {
             let stringToAdd = plannedStops.split(oldString)
-            return plannedStops = stringToAdd.join(newString)
+             plannedStops = stringToAdd.join(newString)
         }
     }
 }
-worldTour(["Hawai::Cyprys-GreeceHawaiHawaiHawaiHawaiHawaiHawai",
-    "Add Stop:6:Liverpool",
-    "Remove Stop:13:12",
-    "Switch:Hawai:Bulgaria",
-    "Travel"])
+worldTour(["Hawai::Cyprys-Greece",
+"Add Stop:7:Rome",
+"Remove Stop:11:16",
+"Switch:Hawai:Bulgaria",
+"Travel"])
