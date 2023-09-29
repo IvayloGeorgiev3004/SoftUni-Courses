@@ -1,0 +1,313 @@
+
+{
+  "type": "EVENT",
+  "timestamp": "2023-04-20T17:58:34+02:00",
+  "format": "USDF1.3.2",
+  "source": "ENETPULSE",
+  "feedFlag": "P",
+  "language": "EN",
+  "body": {
+    "competition": {
+      "id": "1271",
+      "title": "2020 World Championship",
+      "disciplines": [
+        {
+          "id": "3038",
+          "title": "Skateboarding",
+          "sportDiscipline": "SDIS$SKB",
+          "events": [
+            {
+              "id": "2037",
+              "title": "Female",
+              "type": "EVNT$SKBStreet",
+              "gender": "SGEN$W",
+              "competitorType": "INDIVIDUAL",
+              "order": 1,
+              "athletes": [
+                {
+                  "id": "1277025",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "25",
+                    "country": "CNTR$JPN",
+                    "name": "Japan",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Aori",
+                  "familyName": "Nishimura",
+                  "order": 1,
+                  "result": {
+                    "rank": 1,
+                    "sortOrder": 1
+                  }
+                },
+                {
+                  "id": "1277026",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "25",
+                    "country": "CNTR$JPN",
+                    "name": "Japan",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Momiji",
+                  "familyName": "Nishiya",
+                  "order": 2,
+                  "result": {
+                    "rank": 2,
+                    "sortOrder": 2
+                  }
+                },
+                {
+                  "id": "1277019",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "51",
+                    "country": "CNTR$BRA",
+                    "name": "Brazil",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Rayssa",
+                  "familyName": "Leal",
+                  "order": 3,
+                  "result": {
+                    "rank": 3,
+                    "sortOrder": 3
+                  }
+                },
+                {
+                  "id": "1277020",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "51",
+                    "country": "CNTR$BRA",
+                    "name": "Brazil",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Pamela",
+                  "familyName": "Rosa",
+                  "order": 4,
+                  "result": {
+                    "rank": 4,
+                    "sortOrder": 4
+                  }
+                },
+                {
+                  "id": "1277018",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "51",
+                    "country": "CNTR$BRA",
+                    "name": "Brazil",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Leticia",
+                  "familyName": "Bufoni",
+                  "order": 5,
+                  "result": {
+                    "rank": 5,
+                    "sortOrder": 5
+                  }
+                },
+                {
+                  "id": "1277024",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "25",
+                    "country": "CNTR$JPN",
+                    "name": "Japan",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Funa",
+                  "familyName": "Nakayama",
+                  "order": 6,
+                  "result": {
+                    "rank": 6,
+                    "sortOrder": 6
+                  }
+                },
+                {
+                  "id": "1277032",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "16",
+                    "country": "CNTR$USA",
+                    "name": "USA",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Mariah",
+                  "familyName": "Duran",
+                  "order": 7,
+                  "result": {
+                    "rank": 7,
+                    "sortOrder": 7
+                  }
+                },
+                {
+                  "id": "1277029",
+                  "gender": "PGEN$F",
+                  "organisation": {
+                    "id": "9",
+                    "country": "CNTR$NED",
+                    "name": "Netherlands",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Roos",
+                  "familyName": "Zwetsloot",
+                  "order": 8
+                }
+              ]
+            },
+            {
+              "id": "2039",
+              "title": "Male",
+              "type": "EVNT$SKBStreet",
+              "gender": "SGEN$M",
+              "competitorType": "INDIVIDUAL",
+              "order": 2,
+              "athletes": [
+                {
+                  "id": "1277113",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "25",
+                    "country": "CNTR$JPN",
+                    "name": "Japan",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Yuto",
+                  "familyName": "Horigome",
+                  "order": 1,
+                  "result": {
+                    "rank": 1,
+                    "sortOrder": 1
+                  }
+                },
+                {
+                  "id": "1277105",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "16",
+                    "country": "CNTR$USA",
+                    "name": "USA",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Nyjah",
+                  "familyName": "Huston",
+                  "order": 2,
+                  "result": {
+                    "rank": 2,
+                    "sortOrder": 2
+                  }
+                },
+                {
+                  "id": "1277112",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "25",
+                    "country": "CNTR$JPN",
+                    "name": "Japan",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Sora",
+                  "familyName": "Shirai",
+                  "order": 3,
+                  "result": {
+                    "rank": 3,
+                    "sortOrder": 3
+                  }
+                },
+                {
+                  "id": "1277106",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "16",
+                    "country": "CNTR$USA",
+                    "name": "USA",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Jagger",
+                  "familyName": "Eaton",
+                  "order": 4,
+                  "result": {
+                    "rank": 4,
+                    "sortOrder": 4
+                  }
+                },
+                {
+                  "id": "1277121",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "51",
+                    "country": "CNTR$BRA",
+                    "name": "Brazil",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Kelvin",
+                  "familyName": "Hoefler",
+                  "order": 5,
+                  "result": {
+                    "rank": 5,
+                    "sortOrder": 5
+                  }
+                },
+                {
+                  "id": "1277119",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "23",
+                    "country": "CNTR$CAN",
+                    "name": "Canada",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Matt",
+                  "familyName": "Berger",
+                  "order": 6,
+                  "result": {
+                    "rank": 6,
+                    "sortOrder": 6
+                  }
+                },
+                {
+                  "id": "1277104",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "16",
+                    "country": "CNTR$USA",
+                    "name": "USA",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Jake",
+                  "familyName": "Ilardi",
+                  "order": 7,
+                  "result": {
+                    "rank": 7,
+                    "sortOrder": 7
+                  }
+                },
+                {
+                  "id": "1277118",
+                  "gender": "PGEN$M",
+                  "organisation": {
+                    "id": "23",
+                    "country": "CNTR$CAN",
+                    "name": "Canada",
+                    "type": "ORGT$NF"
+                  },
+                  "givenName": "Micky",
+                  "familyName": "Papa",
+                  "order": 8,
+                  "result": {
+                    "rank": 8,
+                    "sortOrder": 8
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "lastUpdate": "2023-04-12T18:55:06+02:00"
+}
