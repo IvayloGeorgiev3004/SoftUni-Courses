@@ -2,7 +2,6 @@ function extractTextToUpperCase(string) {
     let patternRegExp = /\b\w+\b/g
     let matchArr = string.match(patternRegExp)
     let neededWord = ""
-    console.log(typeof matchArr)
 
     for (const word of matchArr) {
         neededWord += `${word.toUpperCase()},`
