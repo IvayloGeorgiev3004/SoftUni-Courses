@@ -4,7 +4,7 @@ function spiralMatrix(num1, num2) {
   let y = 0;
   let step = 0;
 
-  for (let i = 0; i < num1 ** 2; ) {
+  for (let i = 0; i < num1 ** 2;) {
     // block 1
     while (y + step < num2) {
       i += 1;
