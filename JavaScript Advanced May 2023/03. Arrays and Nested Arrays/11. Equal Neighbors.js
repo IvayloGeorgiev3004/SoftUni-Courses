@@ -32,7 +32,7 @@ console.log(findEqualNeighbors([['2', '3', '7', '7', '7'],
 
 function countEqualNeighborPairs(matrix) {
     let equalPairs = 0;
-    
+
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             // Check the right neighbor
@@ -45,7 +45,7 @@ function countEqualNeighborPairs(matrix) {
             }
         }
     }
-    
+
     return equalPairs;
 }
 console.log(countEqualNeighborPairs([['2', '3', '7', '7', '7'],

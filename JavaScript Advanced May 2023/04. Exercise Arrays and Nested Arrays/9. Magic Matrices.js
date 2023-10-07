@@ -1,19 +1,20 @@
 function checkIfMatrixIsMagical(matrix) {
-    let magicSum = matrix[0].reduce((num1, num2) => num1 + num2)
-    let isMagical = false;    debugger
+    let magicSum = matrix[0].reduce((num1, num2) => num1 + num2) 
     let columnsSumArray = []
-
+    let rowsArray = [];
     for (let m = 0; m< matrix[0].length; m++){
         columnsSumArray[m] = 0
     }
 
-    debugger
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             columnsSumArray[j] += matrix[i][j]
         }
-
     }
+    let columnsMagical = columnsSumArray.reduce((num1, num2) => (num1+num2))
+    columnsMagical/= columnsSumArray.length
+debugger
+    
     console.log(columnsSumArray)
 }
 checkIfMatrixIsMagical([
