@@ -4,23 +4,46 @@ function checkIfMatrixIsMagical(matrix) {
     let rowsArray = [];
     for (let m = 0; m< matrix[0].length; m++){
         columnsSumArray[m] = 0
+        rowsArray[m] = 0
     }
 
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             columnsSumArray[j] += matrix[i][j]
+            rowsArray[i]+= matrix[i][j]
         }
     }
     let columnsMagical = columnsSumArray.reduce((num1, num2) => (num1+num2))
-    columnsMagical/= columnsSumArray.length
-debugger
+    columnsMagical = Math.floor(columnsMagical / columnsSumArray.length)
+    let rowsMagical = rowsArray.reduce((num1, num2) => (num1+num2))
+    rowsMagical = Math.floor(rowsMagical / rowsArray.length)
+
     
-    console.log(columnsSumArray)
+    if (magicSum === columnsMagical && magicSum === rowsMagical){
+        console.log(true)
+    } else {
+        console.log(false)
+    }
 }
-checkIfMatrixIsMagical([
-    [4, 5, 6],
-    [6, 5, 4],
-    [5, 5, 5]])
+checkIfMatrixIsMagical([[3, 3, 1], 
+    [4, 2, 1], 
+    [0, 2, 5]])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // let матрица = [
     //     [4, 5, 6],
