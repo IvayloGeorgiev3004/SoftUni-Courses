@@ -6,7 +6,7 @@ function findBiggestElementInMatrix(matrix) {
                 max = element
             }
         });
-        
+
     }
     return max
 }
