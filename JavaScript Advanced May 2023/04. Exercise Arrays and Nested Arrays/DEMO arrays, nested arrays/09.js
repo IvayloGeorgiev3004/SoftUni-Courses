@@ -19,7 +19,7 @@ function magicMatrices(matrix) {
 }
 
 magicMatrices([
-  [4, 5, 6], // 0
+  [4, 55, 6], // 0
   [6, 5, 4], // 0
   [5, 5, 5], // 0
 ]);

@@ -2,6 +2,7 @@ function checkIfMatrixIsMagical(matrix) {
     let magicSum = matrix[0].reduce((num1, num2) => num1 + num2) 
     let columnsSumArray = []
     let rowsArray = [];
+    
     for (let m = 0; m< matrix[0].length; m++){
         columnsSumArray[m] = 0
         rowsArray[m] = 0
@@ -28,19 +29,6 @@ function checkIfMatrixIsMagical(matrix) {
 checkIfMatrixIsMagical([[3, 3, 1], 
     [4, 2, 1], 
     [0, 2, 5]])
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
