@@ -1,21 +1,24 @@
 function sortByTwoCriteria(arrayOfStrings) {
+    // Използваме метода sort() за сортиране на масива
+    // Функцията, подадена към sort(), приема два параметъра и връща -1, 0 или 1 в зависимост от резултата от сравнението
     arrayOfStrings.sort((firstEl, secondEl) => {
+        // Сравняваме низовете по дължина
         if (firstEl.length > secondEl.length) {
-            return 1;
+            return 1; // Ако първият низ е по-дълъг, връщаме 1
         } else if (firstEl.length < secondEl.length) {
-            return -1;
+            return -1; // Ако вторият низ е по-дълъг, връщаме -1
         } else {
-            return firstEl.localeCompare(secondEl); // Сравняваме низовете лексикографски
+            // Ако низовете са с еднаква дължина, сравняваме ги лексикографски (по азбучен ред)
+            return firstEl.localeCompare(secondEl);
         }
     });
 
+    // Извеждаме сортирания масив с нов ред като разделител между низовете
     console.log(arrayOfStrings.join("\n"));
 }
 
-sortByTwoCriteria(['Isacc',
-    'Theodor', 'Jack',
-    'Harrison',
-    'George'])
+// Извикване на функцията с входния масив
+sortByTwoCriteria(['Isacc', 'Theodor', 'Jack', 'Harrison', 'George']);
 
 function sortByTwoCriteria2(arrayOfStrings) {
     arrayOfStrings.sort((firstEl, secondEl) => {

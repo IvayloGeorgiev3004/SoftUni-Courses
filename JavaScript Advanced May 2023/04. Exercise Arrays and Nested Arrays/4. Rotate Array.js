@@ -1,12 +1,15 @@
+// Дефиниране на функцията, която приема масив и брой въртения
 function rotateArray(array, rotations) {
+    // Итерираме rotations пъти
     for (let i = 0; i < rotations; i++) {
-        let lastElement = array.pop()
-        array.unshift(lastElement)
+        // Изваждаме последния елемент от масива
+        let lastElement = array.pop();
+        // Поставяме последния елемент отпред на масива
+        array.unshift(lastElement);
     }
-    console.log(array.join(" "))
+    // Преобразуваме масива в текст и го извеждаме в конзолата
+    console.log(array.join(" "));
 }
-rotateArray(['1',
-    '2',
-    '3',
-    '4'],
-    2)
+
+// Извикване на функцията с входния масив ['1', '2', '3', '4'] и 2 въртения
+rotateArray(['1', '2', '3', '4'], 2);
