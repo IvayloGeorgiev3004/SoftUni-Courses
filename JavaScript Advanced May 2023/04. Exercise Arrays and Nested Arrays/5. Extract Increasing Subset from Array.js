@@ -19,5 +19,5 @@ function findBiggestNumber(array) {
     return finalArr;
 }
 
-findBiggestNumber([20, 3, 2, 15, 6, 1]);
+console.log(findBiggestNumber([20, 3, 2, 15, 6, 1]));
 
