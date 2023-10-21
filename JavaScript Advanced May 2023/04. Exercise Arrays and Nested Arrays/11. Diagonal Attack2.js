@@ -26,6 +26,7 @@ function diagonalAttack(matrix) {
         areEqual = true;
     }
 
+    console.table(numMatrix)
     // If the sums of the diagonals are not equal, print the unchanged matrix.
     if (areEqual === false) {
         let unchangedResult = numMatrix.map(row => row.join(" ")).join("\n");
