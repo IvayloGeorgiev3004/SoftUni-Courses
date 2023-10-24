@@ -9,7 +9,7 @@ function townPopulation(array) {
         let [city, population] = cities.split(" <-> ")
         // Convert population from string to number
         population = Number(population)
-
+        debugger
         // Check if the city already exists in citiesPopulationObj
         if (citiesPopulationObj.hasOwnProperty(city)) {
             // If yes, add the current population to the existing city population
