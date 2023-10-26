@@ -1,4 +1,4 @@
-function objectFactory() {}
+function objectFactory(library, orders) {}
 const library = {
     print: function () {
         console.log(`${this.name} is printing a page`);
