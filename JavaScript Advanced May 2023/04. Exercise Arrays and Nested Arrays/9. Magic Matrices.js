@@ -20,9 +20,9 @@ function checkIfMatrixIsMagical(matrix) {
     }
 
     // Намиране на магическата сума за колоните и редовете и закръгляване до цяло число
-    let columnsMagical = columnsSumArray.reduce((num1, num2) => (num1 + num2));
+    let columnsMagical = columnsSumArray.reduce((num1, num2) => num1 + num2);
     columnsMagical = Math.floor(columnsMagical / columnsSumArray.length);
-    let rowsMagical = rowsArray.reduce((num1, num2) => (num1 + num2));
+    let rowsMagical = rowsArray.reduce((num1, num2) => num1 + num2);
     rowsMagical = Math.floor(rowsMagical / rowsArray.length);
 
     // Проверка дали магическата сума за редовете, колоните и първия ред съвпадат
@@ -34,28 +34,30 @@ function checkIfMatrixIsMagical(matrix) {
 }
 
 // Извикване на функцията с входната матрица
-checkIfMatrixIsMagical([[3, 3, 1], [4, 2, 1], [0, 2, 5]]);
+checkIfMatrixIsMagical([
+    [3, 3, 1],
+    [4, 2, 1],
+    [0, 2, 5],
+]);
 
+// let матрица = [
+//     [4, 5, 6],
+//     [6, 5, 4],
+//     [5, 5, 6]
+// ];
 
+// let сумиНаКолони = []; // Масив за съхранение на сумите на колоните
 
-    // let матрица = [
-    //     [4, 5, 6],
-    //     [6, 5, 4],
-    //     [5, 5, 6]
-    // ];
-    
-    // let сумиНаКолони = []; // Масив за съхранение на сумите на колоните
-    
-    // // Инициализация на сумите с нула
-    // for (let j = 0; j < матрица[0].length; j++) {
-    //     сумиНаКолони[j] = 0;
-    // }
-    
-    // // Пресмятане на сумите на колоните
-    // for (let i = 0; i < матрица.length; i++) {
-    //     for (let j = 0; j < матрица[i].length; j++) {
-    //         сумиНаКолони[j] += матрица[i][j];
-    //     }
-    // }
-    
-    // console.log(сумиНаКолони);
+// // Инициализация на сумите с нула
+// for (let j = 0; j < матрица[0].length; j++) {
+//     сумиНаКолони[j] = 0;
+// }
+
+// // Пресмятане на сумите на колоните
+// for (let i = 0; i < матрица.length; i++) {
+//     for (let j = 0; j < матрица[i].length; j++) {
+//         сумиНаКолони[j] += матрица[i][j];
+//     }
+// }
+
+// console.log(сумиНаКолони);
