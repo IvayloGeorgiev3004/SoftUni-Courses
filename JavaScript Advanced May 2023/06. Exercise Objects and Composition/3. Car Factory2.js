@@ -27,9 +27,20 @@ function createCar(carObject) {
     number = number % 2 !== 0 ? number : number + 1;
     return new Array(4).fill(number);
   };
+  let wheelSize = carObject.wheelsize;
+  delete carObject.wheelsize;
 
-  carObject.wheelsize = wheels(carObject.wheelsize);
+  carObject.wheels = wheels(wheelSize);
 
-  console.table(carObject);
+return carObject
+
 }
-createCar({model: "Opel Vectra", power: 91, color: "grey", carriage: "coupe", wheelsize: 17});
+createCar({ model: 'Opel Vectra', 
+power: 110, 
+color: 'grey', 
+carriage: 'coupe', 
+wheelsize: 13 });
+
+
+
+
