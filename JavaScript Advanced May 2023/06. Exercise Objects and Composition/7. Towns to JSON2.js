@@ -5,8 +5,8 @@ function townsToJSON(array) {
 
   for (let i = 1; i < array.length; i++) {
     let [name, latitudeValue, longitudeValue] = array[i].split(/\s*\|\s*/g).slice(1, -1);
-    latitudeValue = Number(parseFloat(latitude).toFixed(2));
-    longitudeValue = Number(parseFloat(longitude).toFixed(2));
+    latitudeValue = Number(parseFloat(latitudeValue).toFixed(2));
+    longitudeValue = Number(parseFloat(longitudeValue).toFixed(2));
     const townObject = {};
     townObject[town] = name;
     townObject[latitude] = latitudeValue;
@@ -17,4 +17,4 @@ function townsToJSON(array) {
 
   return JSON.stringify(arrayOfTowns);
 }
-townsToJSON(["|Town|Latitude|Longitude |", "| Sofia | 42.696552 | 23.32601 |", "| Beijing | 39.913818 | 116.363625 |"]);
+console.log(townsToJSON(["|Town|Latitude|Longitude |", "| Sofia | 42.696552 | 23.32601 |", "| Beijing | 39.913818 | 116.363625 |"]));
