@@ -26,14 +26,15 @@ function janNotation2(array) {
     if (isValueNumber) {
       finalArray.push(input);
     } else {
-      if (finalArray.length < 2) {
-        return console.log(`Error: not enough operands!`);
-      } else {
-        const [lastNum1, lastNum2] = finalArray.slice(finalArray.length - 2, finalArray.length);
-        const resultingNumber = calculator[input](lastNum1, lastNum2);
-        finalArray.splice(finalArray.length - 2, 2, resultingNumber);
+        if (finalArray.length < 2) {
+          return console.log(`Error: not enough operands!`);
+        } else {
+          const lastNum2 = finalArray.pop(); // Get the last number from the array
+          const lastNum1 = finalArray.pop(); // Get the second last number from the array
+          const resultingNumber = calculator[input](lastNum1, lastNum2);
+          finalArray.push(resultingNumber); // Add the resulting number back to the array
+        }
       }
-    }
   }
 
   if (finalArray.length !== 1) {
