@@ -1,11 +1,12 @@
 function ticTacToe(arrayOfStrings) {
-  function print(matrix) {
+  function _print(matrix) {
     matrix.forEach((element) => {
       console.log(element.join("\t"));
     });
   }
 
   let winner = undefined; // Will add winner here(if any)
+  let boardMovesCounter = 0; // Moves counter for counting moves and break if necessary 
 
   let board = new Array(3).fill().map(() => new Array(3).fill("false"));
   let numberedArr = arrayOfStrings.map((element) => (element = element.split(" ").map(Number)));
@@ -14,12 +15,13 @@ function ticTacToe(arrayOfStrings) {
     let row = move[0];
     let column = move[1];
 
-    if (board.indexOf("false") === 0 ){
-        break;
+    if (boardMovesCounter >= 9) {
+      break;
     }
 
     if (board[row][column] === "false") {
       board[row][column] = currentPlayer;
+      boardMovesCounter++;
     } else {
       console.log("This place is already taken. Please choose another!");
       continue;
@@ -60,22 +62,13 @@ function ticTacToe(arrayOfStrings) {
     }
 
     if (currentPlayer === "X") {
-      currentPlayer = "0";
+      currentPlayer = "O";
     } else {
       currentPlayer = "X";
     }
   }
 
   winner ? console.log(`Player ${winner} wins!`) : console.log(`The game ended! Nobody wins :(`);
-  print(board);
+  _print(board);
 }
-ticTacToe(["0 1", 
-"0 0", 
-"0 2", 
-"2 0", 
-"1 0", 
-"1 2", 
-"1 1", 
-"2 1", 
-"2 2", 
-"0 0"]);
+ticTacToe(["0 1", "0 0", "0 2", "2 0", "1 0", "1 2", "1 1", "2 1", "2 2", "0 0"]);
