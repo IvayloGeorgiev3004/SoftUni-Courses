@@ -20,3 +20,5 @@ function sumTable() {
   // Задаване на сумата като текстово съдържание на последния елемент <td>
   elements[elements.length - 1].textContent = sum;
 }
+
+
