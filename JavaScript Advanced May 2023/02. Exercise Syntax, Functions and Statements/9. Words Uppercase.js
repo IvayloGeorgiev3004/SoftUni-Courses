@@ -10,7 +10,7 @@ function extractTextToUpperCase(string) {
     neededWord.pop()
     console.log(neededWord.join(", "))
 }
-extractTextToUpperCase('Hi, how are you?')
+extractTextToUpperCase('Functions in JS can be nested, i.e. hold other functions....')
 
 function extractTextToUpperCase2(string) {
     let patternRegExp = /\b\w+\b/g;
